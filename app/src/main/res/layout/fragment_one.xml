@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00ff00">
+
+    <Button
+        android:id="@+id/btn_jump_frg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到secondFragment"/>
+
+</android.support.constraint.ConstraintLayout>

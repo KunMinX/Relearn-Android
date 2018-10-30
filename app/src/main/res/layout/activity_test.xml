@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <com.kunminx.basicfacttesting.lifecycle_test.TestView
+            android:id="@+id/test_view"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:background="#aa11aa"/>
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btn_show_dlg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="弹出dialog"/>
+
+    <Button
+        android:id="@+id/btn_jump_aty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到secondActivity"/>
+
+    <Button
+        android:id="@+id/btn_jump_frg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载oneFragment"/>
+
+    <FrameLayout
+        android:id="@+id/frg_container"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+
+    <FrameLayout
+        android:id="@+id/frg_container_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
