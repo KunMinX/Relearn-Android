@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.kunminx.basicfacttesting.databinding.ActivityMainBinding;
 import com.kunminx.basicfacttesting.lifecycle_test.OneActivity;
 import com.kunminx.basicfacttesting.touch_dispatch_test.TestDispatchActivity;
+import com.kunminx.basicfacttesting.window_test.TestWindowActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         public void testDispatch() {
             startActivity(new Intent(MainActivity.this, TestDispatchActivity.class));
+        }
+
+        public void testWindow() {
+            startActivity(new Intent(MainActivity.this, TestWindowActivity.class));
         }
     }
 

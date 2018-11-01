@@ -32,6 +32,13 @@
                 android:onClick="@{()->click.testDispatch()}"
                 android:text="测试事件分发"/>
 
+            <Button
+                android:id="@+id/btn_test_window"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->click.testWindow()}"
+                android:text="测试浮动窗口"/>
+
         </LinearLayout>
 
     </ScrollView>
