@@ -1,30 +1,43 @@
 package com.kunminx.basicfacttesting;
 
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+
+import com.kunminx.basicfacttesting.databinding.ActivityMainBinding;
+import com.kunminx.basicfacttesting.lifecycle_test.OneActivity;
+import com.kunminx.basicfacttesting.touch_dispatch_test.TestDispatchActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
     }
 
+    private ActivityMainBinding mBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBinding.setClick(new ClickProxy());
 
-        // Example of a call to a native method
-        TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+//        TextView tv = (TextView) findViewById(R.id.sample_text);
+//        tv.setText(stringFromJNI());
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
     public native String stringFromJNI();
+
+    public class ClickProxy {
+
+        public void testLifeCycle() {
+            startActivity(new Intent(MainActivity.this, OneActivity.class));
+        }
+
+        public void testDispatch() {
+            startActivity(new Intent(MainActivity.this, TestDispatchActivity.class));
+        }
+    }
 
 }
