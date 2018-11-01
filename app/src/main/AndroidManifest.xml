@@ -19,7 +19,6 @@
         </activity>
 
         <!--<activity android:name=".lifecycle_test.OneActivity"/>-->
-        <activity android:name=".lifecycle_test.FirstActivity"/>
         <activity android:name=".lifecycle_test.SecondActivity"/>
 
     </application>
