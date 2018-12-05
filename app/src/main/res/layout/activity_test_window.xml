@@ -5,21 +5,29 @@
 
         <variable
             name="click"
-            type="com.kunminx.basicfacttesting.window_test.TestWindowActivity.ClickProxy"/>
+            type="com.kunminx.basicfacttesting.window_test.TestWindowActivity.ClickProxy" />
 
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_show_window"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{()->click.showFloatWindow()}"
-            android:text="显示浮动窗口"/>
+            android:text="显示浮动窗口" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/btn_hide_window"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->click.hideFloatWindow()}"
+            android:text="隐藏浮动窗口" />
+
+    </LinearLayout>
 </layout>
 

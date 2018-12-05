@@ -14,8 +14,7 @@ import com.kunminx.basicfacttesting.R;
 
 
 /**
- * @author KunMinX
- * @date 2018/10/18
+ * Create by KunMinX at 2018/10/18
  */
 public class SecondFragment extends Fragment {
 

@@ -12,8 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * @author KunMinX
- * @date 2018/10/18
+ * Create by KunMinX at 2018/10/18
  */
 public class TestView extends View {
     private static final String TAG = "------TestView";

@@ -3,14 +3,15 @@ package com.kunminx.basicfacttesting.window_test;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.WindowManager;
 
 import com.kunminx.basicfacttesting.R;
 import com.kunminx.basicfacttesting.databinding.ActivityTestWindowBinding;
 
 
 /**
- * @author KunMinX
- * @date 2018/10/18
+ * Create by KunMinX at 2018/10/18
  */
 public class TestWindowActivity extends AppCompatActivity {
 
@@ -29,17 +30,20 @@ public class TestWindowActivity extends AppCompatActivity {
     public class ClickProxy {
 
         public void showFloatWindow() {
-            /*if (mFloatWindow == null) {
+            if (mFloatWindow == null) {
                 mFloatWindow = new FloatWindow(TestWindowActivity.this, WindowManager.LayoutParams.TYPE_APPLICATION_PANEL);
-                mFloatWindow.setXY((int) getResources().getDimension(
-                        R.dimen.title_height) * 2, mIsPad ?
-                        DisplayUtils.getScreenHeight(mActivity) - (int) getResources().getDimension(R.dimen.title_height)
-                        : (int) getResources().getDimension(R.dimen.title_height) * 3);
-                View toolView = mFloatWindow.inflateAndSetContentView(R.layout.float_window_gps_info_simple);
+                mFloatWindow.setXY(0, 0);
+                View toolView = mFloatWindow.inflateAndSetContentView(R.layout.layout_float_window);
             }
             if (!mFloatWindow.isShowing()) {
                 mFloatWindow.show(getWindow().getDecorView());
-            }*/
+            }
+        }
+
+        public void hideFloatWindow() {
+            if (mFloatWindow != null) {
+                mFloatWindow.dismiss();
+            }
         }
     }
 

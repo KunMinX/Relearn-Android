@@ -8,8 +8,7 @@ import com.kunminx.basicfacttesting.R;
 
 
 /**
- * @author KunMinX
- * @date 2018/10/12
+ * Create by KunMinX at 2018/10/12
  */
 public class SecondActivity extends AppCompatActivity {
 
