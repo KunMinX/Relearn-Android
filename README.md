@@ -1,4 +1,4 @@
-![重学安卓](https://upload-images.jianshu.io/upload_images/57036-479dc1be6e378ed7.png)
+![重学安卓](https://upload-images.jianshu.io/upload_images/57036-dc6e08d410a43f9f.png)
 
 由于时间关系，重学安卓配套测试代码正在执行最后的润色 ~
 
