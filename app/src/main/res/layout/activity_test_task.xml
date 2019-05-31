@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_standard_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 Standard One" />
+
+        <Button
+            android:id="@+id/btn_standard_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 Standard Two" />
+
+        <Button
+            android:id="@+id/btn_singletop_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 SingleTop One" />
+
+        <Button
+            android:id="@+id/btn_singletop_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 SingleTop Two" />
+
+        <Button
+            android:id="@+id/btn_singletask_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 SingleTask One" />
+
+        <Button
+            android:id="@+id/btn_singletask_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 SingleTask Two" />
+
+        <Button
+            android:id="@+id/btn_singleinstance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动 SingleInstance" />
+
+    </LinearLayout>
+
+</ScrollView>
+

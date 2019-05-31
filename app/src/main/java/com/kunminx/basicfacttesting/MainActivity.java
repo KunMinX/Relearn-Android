@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.kunminx.basicfacttesting.databinding.ActivityMainBinding;
 import com.kunminx.basicfacttesting.test01_lifecycle_test.OneActivity;
 import com.kunminx.basicfacttesting.test02_router_test.IntentTestActivity;
+import com.kunminx.basicfacttesting.test02_router_test.StandardOneActivity;
 import com.kunminx.basicfacttesting.touch_dispatch_test.TestDispatchActivity;
 import com.kunminx.basicfacttesting.window_test.TestWindowActivity;
 
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         public void testIntent(){
             startActivity(new Intent(MainActivity.this, IntentTestActivity.class));
+        }
+
+        public void testTask(){
+            startActivity(new Intent(MainActivity.this, StandardOneActivity.class));
         }
     }
 

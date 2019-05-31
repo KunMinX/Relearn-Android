@@ -46,6 +46,13 @@
                 android:onClick="@{()->click.testIntent()}"
                 android:text="测试 intent"/>
 
+            <Button
+                android:id="@+id/btn_test_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->click.testTask()}"
+                android:text="测试 Task"/>
+
         </LinearLayout>
 
     </ScrollView>

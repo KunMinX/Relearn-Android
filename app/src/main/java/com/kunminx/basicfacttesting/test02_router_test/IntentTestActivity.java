@@ -54,10 +54,12 @@ public class IntentTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setType("text/*");
-                intent.putExtra("content", "123");
+//                intent.setDataAndType(Uri.parse("https://"), "image/*");
+//                intent.setAction("android.intent.action.VIEW");
+                intent.setType("*/*");
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
+//                    getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
                 }
             }
         });

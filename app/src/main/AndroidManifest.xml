@@ -31,6 +31,27 @@
             </intent-filter>
 
         </activity>
+
+        <activity android:name=".test02_router_test.StandardOneActivity" />
+        <activity android:name=".test02_router_test.StandardTwoActivity" />
+        <activity
+            android:name=".test02_router_test.SingleTopOneActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".test02_router_test.SingleTopTwoActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".test02_router_test.SingleTaskOneActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.kunminx.task.a" />
+        <activity
+            android:name=".test02_router_test.SingleTaskTwoActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.kunminx.task.a" />
+        <activity
+            android:name=".test02_router_test.SingleInstanceActivity"
+            android:launchMode="singleInstance" />
+
     </application>
 
 </manifest>
