@@ -25,7 +25,9 @@
         <activity android:name=".test02_router_test.IntentTestTwoActivity">
             <intent-filter>
                 <action android:name="com.kunminx.action.two" />
+
                 <category android:name="com.kunminx.category.two" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
         </activity>

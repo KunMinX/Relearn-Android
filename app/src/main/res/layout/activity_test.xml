@@ -9,40 +9,57 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_show_dialog"
+            android:id="@+id/btn_show_dlg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="显式 Intent 启动 Activity" />
+            android:text="弹出dialog" />
 
         <Button
-            android:id="@+id/btn_Jump_aty"
+            android:id="@+id/btn_jump_aty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="隐式 Intent 启动 Activity" />
+            android:text="跳转到secondActivity" />
 
         <Button
-            android:id="@+id/btn_jump_frag"
+            android:id="@+id/btn_jump_frg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="隐式匹配 App 列表" />
+            android:text="加载oneFragment" />
 
-        <Button
-            android:id="@+id/btn_page2"
+        <FrameLayout
+            android:id="@+id/frg_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="测试所谓的 Default Category" />
+            android:layout_height="150dp" />
 
-        <Button
-            android:id="@+id/btn_page1"
+        <FrameLayout
+            android:id="@+id/frg_container_1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="隐式匹配 data" />
+            android:layout_height="match_parent" />
 
-        <Button
-            android:id="@+id/btn_implicitly_intent_action"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="THIRD" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_page1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Page1" />
+
+            <Button
+                android:id="@+id/btn_page2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Page2" />
+
+            <Button
+                android:id="@+id/btn_page3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Page3" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

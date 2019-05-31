@@ -23,13 +23,13 @@ public class IntentTestTwoActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_intent);
-        mBtnTestExAty = (Button) findViewById(R.id.btn_show_dialog);
-        mBtnTestImAty = (Button) findViewById(R.id.btn_Jump_aty);
-        mBtnTestList = (Button) findViewById(R.id.btn_jump_frag);
+        mBtnTestExAty = (Button) findViewById(R.id.btn_explicitly_aty);
+        mBtnTestImAty = (Button) findViewById(R.id.btn_implicitly_aty);
+        mBtnTestList = (Button) findViewById(R.id.btn_implicitly_list);
 
-        mBtnTestAction = (Button) findViewById(R.id.btn_implicitly_intent_action);
-        mBtnTestCategory = (Button) findViewById(R.id.btn_page2);
-        mBtnTestData = (Button) findViewById(R.id.btn_page1);
+        mBtnTestAction = (Button) findViewById(R.id.btn_implicitly_action);
+        mBtnTestCategory = (Button) findViewById(R.id.btn_implicitly_category);
+        mBtnTestData = (Button) findViewById(R.id.btn_implicitly_data);
 
         mBtnTestImAty.setOnClickListener(new View.OnClickListener() {
             @Override

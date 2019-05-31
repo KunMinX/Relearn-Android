@@ -33,13 +33,13 @@ public class OneActivity extends BaseLifeCycleActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        mBtnJumpAty = (Button) findViewById(R.id.btn_Jump_aty);
-        mBtnJumpFrg = (Button) findViewById(R.id.btn_jump_frag);
-        mBtnShowDlg = (Button) findViewById(R.id.btn_show_dialog);
+        mBtnJumpAty = (Button) findViewById(R.id.btn_jump_aty);
+        mBtnJumpFrg = (Button) findViewById(R.id.btn_jump_frg);
+        mBtnShowDlg = (Button) findViewById(R.id.btn_show_dlg);
 
         mBtnPage1 = (Button) findViewById(R.id.btn_page1);
         mBtnPage2 = (Button) findViewById(R.id.btn_page2);
-        mBtnPage3 = (Button) findViewById(R.id.btn_implicitly_intent_action);
+        mBtnPage3 = (Button) findViewById(R.id.btn_page3);
 
         mBtnJumpAty.setOnClickListener(new View.OnClickListener() {
             @Override

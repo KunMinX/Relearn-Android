@@ -39,6 +39,13 @@
                 android:onClick="@{()->click.testWindow()}"
                 android:text="测试浮动窗口"/>
 
+            <Button
+                android:id="@+id/btn_test_intent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->click.testIntent()}"
+                android:text="测试 intent"/>
+
         </LinearLayout>
 
     </ScrollView>

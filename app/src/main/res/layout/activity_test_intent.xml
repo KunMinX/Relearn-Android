@@ -9,41 +9,41 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_show_dialog"
+            android:id="@+id/btn_explicitly_aty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="显式 Intent 启动 Activity" />
 
         <Button
-            android:id="@+id/btn_Jump_aty"
+            android:id="@+id/btn_implicitly_aty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="隐式 Intent 启动 Activity" />
 
         <Button
-            android:id="@+id/btn_jump_frag"
+            android:id="@+id/btn_implicitly_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="隐式匹配 App 列表" />
 
         <Button
-            android:id="@+id/btn_implicitly_intent_action"
+            android:id="@+id/btn_implicitly_action"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="测试所谓的 action 必填" />
 
         <Button
-            android:id="@+id/btn_page2"
+            android:id="@+id/btn_implicitly_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="测试所谓的 Default Category" />
 
         <Button
-            android:id="@+id/btn_page1"
+            android:id="@+id/btn_implicitly_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="隐式匹配 data" />
-        
+
     </LinearLayout>
 
 </ScrollView>

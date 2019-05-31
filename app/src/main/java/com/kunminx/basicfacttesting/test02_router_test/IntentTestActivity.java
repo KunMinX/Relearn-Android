@@ -1,6 +1,7 @@
 package com.kunminx.basicfacttesting.test02_router_test;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,13 +23,13 @@ public class IntentTestActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_intent);
-        mBtnTestExAty = (Button) findViewById(R.id.btn_show_dialog);
-        mBtnTestImAty = (Button) findViewById(R.id.btn_Jump_aty);
-        mBtnTestList = (Button) findViewById(R.id.btn_jump_frag);
+        mBtnTestExAty = (Button) findViewById(R.id.btn_explicitly_aty);
+        mBtnTestImAty = (Button) findViewById(R.id.btn_implicitly_aty);
+        mBtnTestList = (Button) findViewById(R.id.btn_implicitly_list);
 
-        mBtnTestAction = (Button) findViewById(R.id.btn_implicitly_intent_action);
-        mBtnTestCategory = (Button) findViewById(R.id.btn_page2);
-        mBtnTestData = (Button) findViewById(R.id.btn_page1);
+        mBtnTestAction = (Button) findViewById(R.id.btn_implicitly_action);
+        mBtnTestCategory = (Button) findViewById(R.id.btn_implicitly_category);
+        mBtnTestData = (Button) findViewById(R.id.btn_implicitly_data);
 
         mBtnTestExAty.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,14 +41,24 @@ public class IntentTestActivity extends AppCompatActivity {
         mBtnTestImAty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setAction("com.kunminx.action.two");
+                intent.addCategory("com.kunminx.category.two");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
         mBtnTestList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setType("text/*");
+                intent.putExtra("content", "123");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -61,19 +72,18 @@ public class IntentTestActivity extends AppCompatActivity {
         mBtnTestCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction("com.kunminx.action.two");
-                intent.addCategory("com.kunminx.category.two");
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+
             }
         });
 
         mBtnTestData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setData(Uri.parse("https://www.baidu.com"));
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
