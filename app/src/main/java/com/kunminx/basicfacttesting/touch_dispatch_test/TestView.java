@@ -3,8 +3,10 @@ package com.kunminx.basicfacttesting.touch_dispatch_test;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -15,22 +17,24 @@ import android.view.View;
  * Create by KunMinX at 2018/10/18
  */
 public class TestView extends View {
-    private static final String TAG = "------TestView";
+
+    private static final String TAG = "info";
+    private static final String NAME = TestView.class.getSimpleName();
 
 
     public TestView(Context context) {
         super(context);
-        Log.d(TAG, "TestView()");
+        Log.d(TAG, NAME + "----TestView(context)");
     }
 
     public TestView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        Log.d(TAG, "TestView()");
+        Log.d(TAG, NAME + "----TestView(context,attrs)");
     }
 
     public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        Log.d(TAG, "TestView()");
+        Log.d(TAG, NAME + "----TestView(context,attrs,defStyleAttr)");
     }
 
     /**
@@ -39,7 +43,7 @@ public class TestView extends View {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        Log.d(TAG, "View onFinishInflate()");
+        Log.d(TAG, NAME + "----View onFinishInflate()");
     }
 
     /**
@@ -48,7 +52,7 @@ public class TestView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Log.d(TAG, "View onMeasure()");
+        Log.d(TAG, NAME + "----View onMeasure()");
     }
 
     /**
@@ -57,7 +61,7 @@ public class TestView extends View {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        Log.d(TAG, "View onLayout() left = " + left + " top = " + top + " right = " + right + " bottom = " + bottom);
+        Log.d(TAG, NAME + "----View onLayout() left = " + left + " top = " + top + " right = " + right + " bottom = " + bottom);
     }
 
     /**
@@ -66,7 +70,7 @@ public class TestView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        Log.d(TAG, "View onSizeChanged() w = " + w + " h = " + h + " oldw = " + oldw + " oldh = " + oldh);
+        Log.d(TAG, NAME + "----View onSizeChanged() w = " + w + " h = " + h + " oldw = " + oldw + " oldh = " + oldh);
     }
 
     /**
@@ -75,7 +79,7 @@ public class TestView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.d(TAG, "View onDraw()");
+        Log.d(TAG, NAME + "----View onDraw()");
     }
 
     /**
@@ -83,7 +87,7 @@ public class TestView extends View {
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Log.d(TAG, "View onKeyDown() event = " + event.getAction());
+        Log.d(TAG, NAME + "----View onKeyDown() event = " + event.getAction());
         return super.onKeyDown(keyCode, event);
     }
 
@@ -92,7 +96,7 @@ public class TestView extends View {
      */
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        Log.d(TAG, "View onKeyUp() event = " + event.getAction());
+        Log.d(TAG, NAME + "----View onKeyUp() event = " + event.getAction());
         return super.onKeyUp(keyCode, event);
     }
 
@@ -101,7 +105,7 @@ public class TestView extends View {
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.d(TAG, "View onTouchEvent() event =  " + event.getAction());
+        Log.d(TAG, NAME + "----View onTouchEvent() event =  " + event.getAction());
         return super.onTouchEvent(event);
     }
 
@@ -111,7 +115,7 @@ public class TestView extends View {
     @Override
     protected void onFocusChanged(boolean gainFocus, int direction, @Nullable Rect previouslyFocusedRect) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-        Log.d(TAG, "View onFocusChanged() gainFocus = " + gainFocus);
+        Log.d(TAG, NAME + "----View onFocusChanged() gainFocus = " + gainFocus);
     }
 
     /**
@@ -120,7 +124,7 @@ public class TestView extends View {
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
-        Log.d(TAG, "View onWindowFocusChanged() hasWindowFocus = " + hasWindowFocus);
+        Log.d(TAG, NAME + "----View onWindowFocusChanged() hasWindowFocus = " + hasWindowFocus);
     }
 
     /**
@@ -129,7 +133,7 @@ public class TestView extends View {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Log.d(TAG, "View onAttachedToWindow()");
+        Log.d(TAG, NAME + "----View onAttachedToWindow()");
     }
 
     /**
@@ -138,7 +142,7 @@ public class TestView extends View {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Log.d(TAG, "View onDetachedFromWindow()");
+        Log.d(TAG, NAME + "----View onDetachedFromWindow()");
     }
 
     /**
@@ -147,7 +151,7 @@ public class TestView extends View {
     @Override
     protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);
-        Log.d(TAG, "View onVisibilityChanged() visibility = " + visibility);
+        Log.d(TAG, NAME + "----View onVisibilityChanged() visibility = " + visibility);
     }
 
     /**
@@ -156,6 +160,7 @@ public class TestView extends View {
     @Override
     protected void onWindowVisibilityChanged(int visibility) {
         super.onWindowVisibilityChanged(visibility);
-        Log.d(TAG, "View onWindowVisibilityChanged() visibility = " + visibility);
+        Log.d(TAG, NAME + "----View onWindowVisibilityChanged() visibility = " + visibility);
     }
+
 }

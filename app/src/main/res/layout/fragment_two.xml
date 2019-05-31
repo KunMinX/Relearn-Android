@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0000ff">
+    android:background="#0000ff"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_jump_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="关闭此fragment"/>
+        android:text="关闭此fragment" />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

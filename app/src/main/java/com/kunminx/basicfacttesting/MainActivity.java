@@ -1,20 +1,17 @@
 package com.kunminx.basicfacttesting;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.kunminx.basicfacttesting.databinding.ActivityMainBinding;
-import com.kunminx.basicfacttesting.lifecycle_test.OneActivity;
+import com.kunminx.basicfacttesting.test01_lifecycle_test.OneActivity;
+import com.kunminx.basicfacttesting.test02_router_test.IntentTestActivity;
 import com.kunminx.basicfacttesting.touch_dispatch_test.TestDispatchActivity;
 import com.kunminx.basicfacttesting.window_test.TestWindowActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    static {
-        System.loadLibrary("native-lib");
-    }
 
     private ActivityMainBinding mBinding;
 
@@ -42,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         public void testWindow() {
             startActivity(new Intent(MainActivity.this, TestWindowActivity.class));
+        }
+
+        public void testIntent(){
+            startActivity(new Intent(MainActivity.this, IntentTestActivity.class));
         }
     }
 

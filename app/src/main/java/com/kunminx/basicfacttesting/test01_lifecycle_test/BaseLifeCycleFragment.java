@@ -1,105 +1,96 @@
-package com.kunminx.basicfacttesting.lifecycle_test;
+package com.kunminx.basicfacttesting.test01_lifecycle_test;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kunminx.basicfacttesting.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 
 /**
  * Create by KunMinX at 2018/10/18
  */
-public class OneFragment extends Fragment {
+public class BaseLifeCycleFragment extends Fragment {
 
-    private static final String TAG = "------OneFragment";
+    protected String className = getClass().getSimpleName();
+    protected static final String TAG = "info";
 
-    
+
     @Override
     public void onAttach(Context context) {
-        Log.d(TAG, "Fragment--onAttach()");
+        Log.d(TAG, className + "--onAttach()");
         super.onAttach(context);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "Fragment--onCreate()");
+        Log.d(TAG, className + "--onCreate()");
         super.onCreate(savedInstanceState);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "Fragment--onCreateView()");
-        return inflater.inflate(R.layout.fragment_one, container, false);
+        Log.d(TAG, className + "--onCreateView()");
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "Fragment--onViewCreated()");
+        Log.d(TAG, className + "--onViewCreated()");
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btn_jump_frg).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction()
-                        .add(R.id.frg_container, new SecondFragment())
-                        .hide(OneFragment.this)
-                        .addToBackStack(null).commit();
-            }
-        });
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "Fragment--onActivityCreated()");
+        Log.d(TAG, className + "--onActivityCreated()");
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void onStart() {
-        Log.d(TAG, "Fragment--onStart()");
+        Log.d(TAG, className + "--onStart()");
         super.onStart();
     }
 
     @Override
     public void onResume() {
-        Log.d(TAG, "Fragment--onResume()");
+        Log.d(TAG, className + "--onResume()");
         super.onResume();
     }
 
     @Override
     public void onPause() {
-        Log.d(TAG, "Fragment--onPause()");
+        Log.d(TAG, className + "--onPause()");
         super.onPause();
     }
 
     @Override
     public void onStop() {
-        Log.d(TAG, "Fragment--onStop()");
+        Log.d(TAG, className + "--onStop()");
         super.onStop();
     }
 
     @Override
     public void onDestroyView() {
-        Log.d(TAG, "Fragment--onDestroyView()");
+        Log.d(TAG, className + "--onDestroyView()");
         super.onDestroyView();
     }
 
     @Override
     public void onDestroy() {
-        Log.d(TAG, "Fragment--onDestroy()");
+        Log.d(TAG, className + "--onDestroy()");
         super.onDestroy();
     }
 
     @Override
     public void onDetach() {
-        Log.d(TAG, "Fragment--onDetach()");
+        Log.d(TAG, className + "--onDetach()");
         super.onDetach();
     }
 

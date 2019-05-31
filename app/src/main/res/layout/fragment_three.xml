@@ -2,12 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00ff00"
+    android:background="#ff00ff"
     android:orientation="vertical">
-
-    <com.kunminx.basicfacttesting.touch_dispatch_test.TestView
-        android:layout_width="100dp"
-        android:layout_height="40dp" />
 
     <EditText
         android:id="@+id/et"
@@ -18,15 +14,16 @@
 
     <TextView
         android:id="@+id/tv_num"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:padding="12dp"
-        android:textSize="20sp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btn_jump_frag"
+        android:id="@+id/btn_jump_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="跳转到secondFragment" />
+        android:text="关闭此fragment" />
+
 
 </LinearLayout>

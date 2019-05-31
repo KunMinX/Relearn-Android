@@ -27,6 +27,12 @@
             android:text="隐式匹配 App 列表" />
 
         <Button
+            android:id="@+id/btn_implicitly_intent_action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试所谓的 action 必填" />
+
+        <Button
             android:id="@+id/btn_page2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,13 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="隐式匹配 data" />
-
-        <Button
-            android:id="@+id/btn_implicitly_intent_action"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="THIRD" />
-
+        
     </LinearLayout>
 
 </ScrollView>

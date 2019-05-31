@@ -1,10 +1,7 @@
 package com.kunminx.basicfacttesting.touch_dispatch_test;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.kunminx.basicfacttesting.R;
 

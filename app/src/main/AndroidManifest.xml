@@ -17,10 +17,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".lifecycle_test.OneActivity" />
-        <activity android:name=".lifecycle_test.SecondActivity" />
+        <activity android:name=".test01_lifecycle_test.OneActivity" />
+        <activity android:name=".test01_lifecycle_test.SecondActivity" />
         <activity android:name=".touch_dispatch_test.TestDispatchActivity" />
         <activity android:name=".window_test.TestWindowActivity" />
+        <activity android:name=".test02_router_test.IntentTestActivity" />
+        <activity android:name=".test02_router_test.IntentTestTwoActivity">
+            <intent-filter>
+                <action android:name="com.kunminx.action.two" />
+                <category android:name="com.kunminx.category.two" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
