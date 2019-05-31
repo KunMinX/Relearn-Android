@@ -21,8 +21,8 @@
         <activity android:name=".test01_lifecycle_test.SecondActivity" />
         <activity android:name=".touch_dispatch_test.TestDispatchActivity" />
         <activity android:name=".window_test.TestWindowActivity" />
-        <activity android:name=".test02_router_test.IntentTestActivity" />
-        <activity android:name=".test02_router_test.IntentTestTwoActivity">
+        <activity android:name=".test02_intent_test.IntentTestActivity" />
+        <activity android:name=".test02_intent_test.IntentTestTwoActivity">
             <intent-filter>
                 <action android:name="com.kunminx.action.two" />
 
@@ -32,25 +32,29 @@
 
         </activity>
 
-        <activity android:name=".test02_router_test.StandardOneActivity" />
-        <activity android:name=".test02_router_test.StandardTwoActivity" />
+        <activity android:name=".test03_task_test.StandardOneActivity" />
         <activity
-            android:name=".test02_router_test.SingleTopOneActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".test02_router_test.SingleTopTwoActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".test02_router_test.SingleTaskOneActivity"
-            android:launchMode="singleTask"
+            android:name=".test03_task_test.StandardTwoActivity"
             android:taskAffinity="com.kunminx.task.a" />
         <activity
-            android:name=".test02_router_test.SingleTaskTwoActivity"
-            android:launchMode="singleTask"
-            android:taskAffinity="com.kunminx.task.a" />
+            android:name=".test03_task_test.SingleTopOneActivity"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.kunminx.task.b" />
         <activity
-            android:name=".test02_router_test.SingleInstanceActivity"
-            android:launchMode="singleInstance" />
+            android:name=".test03_task_test.SingleTopTwoActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".test03_task_test.SingleTaskOneActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.kunminx.task.c" />
+        <activity
+            android:name=".test03_task_test.SingleTaskTwoActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.kunminx.task.c" />
+        <activity
+            android:name=".test03_task_test.SingleInstanceActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.kunminx.task.d" />
 
     </application>
 

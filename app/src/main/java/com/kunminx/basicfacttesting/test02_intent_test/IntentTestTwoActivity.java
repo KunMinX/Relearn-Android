@@ -1,7 +1,6 @@
-package com.kunminx.basicfacttesting.test02_router_test;
+package com.kunminx.basicfacttesting.test02_intent_test;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,12 +8,13 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.test01_lifecycle_test.SecondActivity;
 
 
 /**
  * Create by KunMinX at 2018/10/18
  */
-public class IntentTestActivity extends AppCompatActivity {
+public class IntentTestTwoActivity extends AppCompatActivity {
 
     private Button mBtnTestImAty, mBtnTestList, mBtnTestExAty, mBtnTestData, mBtnTestCategory, mBtnTestAction;
 
@@ -31,40 +31,28 @@ public class IntentTestActivity extends AppCompatActivity {
         mBtnTestCategory = (Button) findViewById(R.id.btn_implicitly_category);
         mBtnTestData = (Button) findViewById(R.id.btn_implicitly_data);
 
-        mBtnTestExAty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(IntentTestActivity.this, IntentTestTwoActivity.class));
-            }
-        });
-
         mBtnTestImAty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction("com.kunminx.action.two");
-                intent.addCategory("com.kunminx.category.two");
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+                startActivity(new Intent(IntentTestTwoActivity.this, SecondActivity.class));
             }
         });
 
         mBtnTestList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-//                intent.setDataAndType(Uri.parse("https://"), "image/*");
-//                intent.setAction("android.intent.action.VIEW");
-                intent.setType("*/*");
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-//                    getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                }
+
             }
         });
 
-        mBtnTestAction.setOnClickListener(new View.OnClickListener() {
+        mBtnTestExAty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        
+        mBtnTestData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -78,17 +66,14 @@ public class IntentTestActivity extends AppCompatActivity {
             }
         });
 
-        mBtnTestData.setOnClickListener(new View.OnClickListener() {
+        mBtnTestAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setData(Uri.parse("https://www.baidu.com"));
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+
             }
         });
 
     }
+
 
 }

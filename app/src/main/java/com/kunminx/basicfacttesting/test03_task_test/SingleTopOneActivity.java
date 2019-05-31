@@ -1,4 +1,4 @@
-package com.kunminx.basicfacttesting.test02_router_test;
+package com.kunminx.basicfacttesting.test03_task_test;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +8,12 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kunminx.basicfacttesting.R;
-import com.kunminx.basicfacttesting.test01_lifecycle_test.SecondActivity;
 
 
 /**
  * Create by KunMinX at 2018/10/18
  */
-public class StandardTwoActivity extends AppCompatActivity implements View.OnClickListener {
+public class SingleTopOneActivity extends BaseTaskActivity implements View.OnClickListener {
 
     private Button mBtnStandardTwo, mBtnSingleTopOne, mBtnStandardOne,
             mBtnSingleTaskTwo, mBtnSingleTaskOne, mBtnSingleTopTwo,
@@ -55,7 +54,7 @@ public class StandardTwoActivity extends AppCompatActivity implements View.OnCli
                 startActivity(new Intent(this, StandardTwoActivity.class));
                 break;
             case R.id.btn_singletop_one:
-                startActivity(new Intent(this, SingleTaskOneActivity.class));
+                startActivity(new Intent(this, SingleTopOneActivity.class));
                 break;
             case R.id.btn_singletop_two:
                 startActivity(new Intent(this, SingleTopTwoActivity.class));
@@ -64,7 +63,7 @@ public class StandardTwoActivity extends AppCompatActivity implements View.OnCli
                 startActivity(new Intent(this, SingleTaskOneActivity.class));
                 break;
             case R.id.btn_singletask_two:
-                startActivity(new Intent(this, SingleTopTwoActivity.class));
+                startActivity(new Intent(this, SingleTaskTwoActivity.class));
                 break;
             case R.id.btn_singleinstance:
                 startActivity(new Intent(this, SingleInstanceActivity.class));
@@ -73,4 +72,3 @@ public class StandardTwoActivity extends AppCompatActivity implements View.OnCli
         }
     }
 }
-
