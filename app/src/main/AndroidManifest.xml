@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
+        <activity android:name=".TestMainActivity">
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity android:name=".test01_lifecycle_test.OneActivity" />
@@ -32,7 +32,9 @@
 
         </activity>
 
-        <activity android:name=".test03_task_test.StandardOneActivity" />
+        <activity
+            android:name=".test03_task_test.StandardOneActivity"
+            android:exported="true" />
         <activity
             android:name=".test03_task_test.StandardTwoActivity"
             android:taskAffinity="com.kunminx.task.a" />
@@ -41,7 +43,7 @@
             android:launchMode="singleTop"
             android:taskAffinity="com.kunminx.task.b" />
         <activity
-            android:name=".test03_task_test.SingleTopTwoActivity"
+            android:name=".test03_task_test.ClearTopActivity"
             android:launchMode="singleTop" />
         <activity
             android:name=".test03_task_test.SingleTaskOneActivity"

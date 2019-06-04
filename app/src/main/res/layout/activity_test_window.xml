@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <data>
-
-        <variable
-            name="click"
-            type="com.kunminx.basicfacttesting.window_test.TestWindowActivity.ClickProxy" />
-
-    </data>
-
-    <LinearLayout
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_show_window"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:onClick="showFloatWindow"
+        android:text="显示浮动窗口" />
 
-        <Button
-            android:id="@+id/btn_show_window"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{()->click.showFloatWindow()}"
-            android:text="显示浮动窗口" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_hide_window"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:onClick="hideFloatWindow"
+        android:text="隐藏浮动窗口" />
 
-        <Button
-            android:id="@+id/btn_hide_window"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{()->click.hideFloatWindow()}"
-            android:text="隐藏浮动窗口" />
-
-    </LinearLayout>
-</layout>
+</LinearLayout>
 

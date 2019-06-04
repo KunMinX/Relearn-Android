@@ -8,40 +8,58 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_explicitly_aty"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:text="显式 Intent 启动 Activity" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_implicitly_aty"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:text="隐式 Intent 启动 Activity" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_implicitly_list"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:text="隐式匹配 App 列表" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_implicitly_action"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:text="测试所谓的 action 必填" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_implicitly_category"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:text="测试所谓的 Default Category" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_implicitly_data"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:text="隐式匹配 data" />
 
     </LinearLayout>
