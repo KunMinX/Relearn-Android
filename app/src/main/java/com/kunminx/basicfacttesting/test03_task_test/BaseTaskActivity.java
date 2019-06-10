@@ -74,24 +74,29 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_standard_one) {
-            startActivity(new Intent(this, StandardOneActivity.class));
+            Intent intent = new Intent(this, StandardOneActivity.class);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_standard_two) {
-            startActivity(new Intent(this, StandardTwoActivity.class));
+            Intent intent = new Intent(this, StandardTwoActivity.class);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletop_one) {
-            startActivity(new Intent(this, SingleTopOneActivity.class));
+            Intent intent = new Intent(this, SingleTopOneActivity.class);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_clear_top) {
             Intent intent = new Intent(this, ClearTopActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletask_one) {
-            startActivity(new Intent(this, SingleTaskOneActivity.class));
+            Intent intent = new Intent(this, SingleTaskOneActivity.class);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletask_two) {
-            startActivity(new Intent(this, SingleTaskTwoActivity.class));
+            Intent intent = new Intent(this, SingleTaskTwoActivity.class);
+            startActivityWithCheck(intent);
 
             //以下测试结果证实：
             //1.在 App2 中启动 App1 的 standard Activity，仍然遵守 standard 的特点：在启动它的 Activity 所在的任务中启动，也即跟随 App2。
@@ -103,7 +108,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
                     "com.kunminx.relearn_android",
                     "com.kunminx.relearn_android.SingleTaskAActivity");
             intent.setComponent(name);
-            startActivity(intent);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletask_b) {
             Intent intent = new Intent();
@@ -111,7 +116,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
                     "com.kunminx.relearn_android",
                     "com.kunminx.relearn_android.SingleTaskBActivity");
             intent.setComponent(name);
-            startActivity(intent);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_standard_a) {
             Intent intent = new Intent();
@@ -119,7 +124,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
                     "com.kunminx.relearn_android",
                     "com.kunminx.relearn_android.StandardAActivity");
             intent.setComponent(name);
-            startActivity(intent);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletop_a) {
             Intent intent = new Intent();
@@ -127,7 +132,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
                     "com.kunminx.relearn_android",
                     "com.kunminx.relearn_android.SingleTopAActivity");
             intent.setComponent(name);
-            startActivity(intent);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_clear_top_a) {
             Intent intent = new Intent();
@@ -135,10 +140,17 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
                     "com.kunminx.relearn_android",
                     "com.kunminx.relearn_android.ClearTopAActivity");
             intent.setComponent(name);
-            startActivity(intent);
+            startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singleinstance) {
-            startActivity(new Intent(this, SingleInstanceActivity.class));
+            Intent intent = new Intent(this, SingleInstanceActivity.class);
+            startActivityWithCheck(intent);
+        }
+    }
+
+    private void startActivityWithCheck(Intent intent) {
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 
