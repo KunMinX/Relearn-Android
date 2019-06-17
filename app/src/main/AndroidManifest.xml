@@ -57,7 +57,9 @@
             android:name=".test03_task_test.SingleInstanceActivity"
             android:launchMode="singleInstance"
             android:taskAffinity="com.kunminx.task.d" />
-
+        <activity
+            android:name=".test03_task_test.FlagNewTaskActivity"
+            android:taskAffinity="com.kunminx.task.e" />
     </application>
 
 </manifest>

@@ -22,7 +22,8 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
 
     protected Button mBtnStandardOne, mBtnStandardTwo, mBtnSingleTopOne, mBtnClearTop,
             mBtnSingleTaskOne, mBtnSingleTaskTwo, mBtnSingleTaskA, mBtnSingleTaskB,
-            mBtnStandardA, mBtnSingleTopA, mBtnClearTopA, mBtnSingleInstance;
+            mBtnStandardA, mBtnSingleTopA, mBtnClearTopA, mBtnSingleInstance,
+            mBtnFlagNewTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         mBtnSingleTopA = (Button) findViewById(R.id.btn_singletop_a);
         mBtnClearTopA = (Button) findViewById(R.id.btn_clear_top_a);
         mBtnSingleInstance = (Button) findViewById(R.id.btn_singleinstance);
+        mBtnFlagNewTask = (Button) findViewById(R.id.btn_flag_new_task);
 
         mBtnStandardOne.setOnClickListener(this);
         mBtnStandardTwo.setOnClickListener(this);
@@ -56,6 +58,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         mBtnSingleTopA.setOnClickListener(this);
         mBtnClearTopA.setOnClickListener(this);
         mBtnSingleInstance.setOnClickListener(this);
+        mBtnFlagNewTask.setOnClickListener(this);
     }
 
     @Override
@@ -144,6 +147,11 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
 
         } else if (i == R.id.btn_singleinstance) {
             Intent intent = new Intent(this, SingleInstanceActivity.class);
+            startActivityWithCheck(intent);
+
+        } else if (i == R.id.btn_flag_new_task) {
+            Intent intent = new Intent(this, FlagNewTaskActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivityWithCheck(intent);
         }
     }
