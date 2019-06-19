@@ -45,7 +45,7 @@ public class TestDispatchActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 boolean result = false;
-                mLogger.d(NAME + "-------TestInterceptViewGroup onTouch is " + result
+                mLogger.d(NAME + "-------ViewGroup onTouch is " + result
                         + " " + MotionEvent.actionToString(event.getAction()));
 
                 return result;
@@ -55,7 +55,7 @@ public class TestDispatchActivity extends AppCompatActivity {
         mVg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLogger.d(NAME + "-------TestInterceptViewGroup onClick is going");
+                mLogger.d(NAME + "-------ViewGroup onClick is going");
 
             }
         });
@@ -65,7 +65,7 @@ public class TestDispatchActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 boolean result = false;
-                mLogger.d(NAME + "-------TestInterceptViewGroup1 onTouch is " + result
+                mLogger.d(NAME + "-------ViewGroup1 onTouch is " + result
                         + " " + MotionEvent.actionToString(event.getAction()));
                 return result;
             }
@@ -74,7 +74,7 @@ public class TestDispatchActivity extends AppCompatActivity {
         mVg1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLogger.d(NAME + "-------TestInterceptViewGroup1 onClick is going");
+                mLogger.d(NAME + "-------ViewGroup1 onClick is going");
 
             }
         });
@@ -103,13 +103,15 @@ public class TestDispatchActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        super.dispatchTouchEvent(ev);
-
-        boolean result = false;
+//        super.dispatchTouchEvent(ev);
+//
+//        boolean result = false;
+        boolean result = super.dispatchTouchEvent(ev);
 
         mLogger.d(NAME + "-------Activity dispatchTouchEvent is " + result
                 + " " + MotionEvent.actionToString(ev.getAction()));
 
         return result;
     }
+
 }

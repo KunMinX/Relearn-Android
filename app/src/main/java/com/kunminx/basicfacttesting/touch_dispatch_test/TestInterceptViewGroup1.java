@@ -53,9 +53,9 @@ public class TestInterceptViewGroup1 extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 //        return super.onInterceptTouchEvent(ev);
 
-        boolean result = false;
+        boolean result = true;
 
-        mLogger.d(NAME + "----" + NAME + " onInterceptTouchEvent is "
+        mLogger.d(NAME + "----" + "ViewGroup1 onInterceptTouchEvent is "
                 + result + " " + MotionEvent.actionToString(ev.getAction()));
 
         return result;
@@ -64,11 +64,12 @@ public class TestInterceptViewGroup1 extends FrameLayout {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        super.onTouchEvent(event);
+//        super.onTouchEvent(event);
+//
+//        boolean result = false;
+        boolean result = super.onTouchEvent(event);
 
-        boolean result = false;
-
-        mLogger.d(NAME + "----" + NAME + " onTouchEvent is "
+        mLogger.d(NAME + "----" + "ViewGroup1 onTouchEvent is "
                 + result + " " + MotionEvent.actionToString(event.getAction()));
 
         return result;
@@ -77,11 +78,12 @@ public class TestInterceptViewGroup1 extends FrameLayout {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        super.dispatchTouchEvent(ev);
+//        super.dispatchTouchEvent(ev);
+//
+//        boolean result = false;
+        boolean result = super.dispatchTouchEvent(ev);
 
-        boolean result = false;
-
-        mLogger.d(NAME + "----" + NAME + " dispatchTouchEvent is " + result
+        mLogger.d(NAME + "----" + "ViewGroup1 dispatchTouchEvent is " + result
                 + " " + MotionEvent.actionToString(ev.getAction()));
 
         return result;
