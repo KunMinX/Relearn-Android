@@ -6,9 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.TestMainActivity;
+
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 
 /**
@@ -16,7 +21,17 @@ import com.kunminx.basicfacttesting.R;
  */
 public class IntentTestActivity extends AppCompatActivity {
 
-    private Button mBtnTestImAty, mBtnTestList, mBtnTestExAty, mBtnTestData, mBtnTestCategory, mBtnTestAction;
+    private Button
+            mBtnTestImAty,//隐式启动
+            mBtnTestExAty,//显式启动
+            mBtnTestList,//隐式启动，弹出匹配的组件列表
+            mBtnTestAction,//测试 ACTION 匹配
+            mBtnTestCategory,//测试 Category 匹配
+            mBtnTestData,//测试 Data 匹配
+            mBtnTestInit,//测试携带数据
+            mBtnTestCallback;//测试回调
+
+    private static final int REQUEST_CODE = 1;
 
 
     @Override
@@ -31,10 +46,14 @@ public class IntentTestActivity extends AppCompatActivity {
         mBtnTestCategory = (Button) findViewById(R.id.btn_implicitly_category);
         mBtnTestData = (Button) findViewById(R.id.btn_implicitly_data);
 
+        mBtnTestInit = (Button) findViewById(R.id.btn_for_init_data);
+        mBtnTestCallback = (Button) findViewById(R.id.btn_for_callback);
+
         mBtnTestExAty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IntentTestActivity.this, IntentTestTwoActivity.class));
+                Intent intent = new Intent(IntentTestActivity.this, IntentTestTwoActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -54,12 +73,11 @@ public class IntentTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-//                intent.setDataAndType(Uri.parse("https://"), "image/*");
-//                intent.setAction("android.intent.action.VIEW");
-                intent.setType("*/*");
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, "我是被发送的文本");
+                intent.setType("text/plain");
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
-//                    getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
                 }
             }
         });
@@ -67,14 +85,25 @@ public class IntentTestActivity extends AppCompatActivity {
         mBtnTestAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, "我是被发送的文本");
+                intent.setType("text/plain");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
         mBtnTestCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent();
+                intent.setAction("com.kunminx.action.two");
+                intent.addCategory("com.kunminx.category.two");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -89,6 +118,34 @@ public class IntentTestActivity extends AppCompatActivity {
             }
         });
 
+        mBtnTestInit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IntentTestActivity.this, IntentTestTwoActivity.class);
+                intent.putExtra(IntentTestTwoActivity.INIT_DATA, 1);
+                startActivity(intent);
+            }
+        });
+
+        mBtnTestCallback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IntentTestActivity.this, IntentTestTwoActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            if (data != null) {
+                //此处拿到的 callbackData 会是 IntentTestTwoActivity 传过来的 123.
+                int callbackData = data.getIntExtra(IntentTestTwoActivity.CALLBACK_DATA, 0);
+                System.out.println(callbackData);
+            }
+        }
+    }
 }

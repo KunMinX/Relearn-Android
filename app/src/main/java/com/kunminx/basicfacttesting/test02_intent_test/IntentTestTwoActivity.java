@@ -18,11 +18,21 @@ public class IntentTestTwoActivity extends AppCompatActivity {
 
     private Button mBtnTestImAty, mBtnTestList, mBtnTestExAty, mBtnTestData, mBtnTestCategory, mBtnTestAction;
 
+    public static final String INIT_DATA = "INIT_DATA";
+    public static final String CALLBACK_DATA = "CALLBACK_DATA";
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_intent);
+
+        Intent intent = getIntent();
+
+        //此处拿到的 initData 会是 IntentTestActivity 传过来的 1.
+        int initData = intent.getIntExtra(INIT_DATA, 0);
+
+        System.out.println(initData);
+
         mBtnTestExAty = (Button) findViewById(R.id.btn_explicitly_aty);
         mBtnTestImAty = (Button) findViewById(R.id.btn_implicitly_aty);
         mBtnTestList = (Button) findViewById(R.id.btn_implicitly_list);
@@ -51,7 +61,7 @@ public class IntentTestTwoActivity extends AppCompatActivity {
 
             }
         });
-        
+
         mBtnTestData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,5 +85,12 @@ public class IntentTestTwoActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent();
+        intent.putExtra(CALLBACK_DATA, 123);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 }

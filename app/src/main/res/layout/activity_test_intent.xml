@@ -62,6 +62,24 @@
             android:layout_marginRight="12dp"
             android:text="隐式匹配 data" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_for_init_data"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="测试携带数据" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_for_callback"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="测试回调" />
+
     </LinearLayout>
 
 </ScrollView>

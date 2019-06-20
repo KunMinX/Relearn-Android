@@ -28,6 +28,8 @@
 
                 <category android:name="com.kunminx.category.two" />
                 <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="https" />
             </intent-filter>
 
         </activity>
