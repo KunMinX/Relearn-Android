@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/map_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/mode_btns_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_btns_container">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mode1"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            android:text="MODE_A" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mode2"
+            android:layout_marginLeft="12dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            android:text="MODE_B" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mode3"
+            android:layout_marginLeft="12dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            android:text="MODE_C" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/status_btns_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status1"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_colors_24px"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status2"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_fab_24px"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status3"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_components_24px"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status4"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_accelerator_24px"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status5"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_dialogs_24px"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status6"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_lists_24px"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status7"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_ripples_24px"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/status8"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/mtrl_min_touch_target_size"
+            app:icon="@drawable/ic_search_24px"
+            app:iconPadding="0dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="by KunMinX"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
