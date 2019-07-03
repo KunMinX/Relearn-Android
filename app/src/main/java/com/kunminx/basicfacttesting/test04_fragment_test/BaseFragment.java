@@ -16,6 +16,7 @@ package com.kunminx.basicfacttesting.test04_fragment_test;
  */
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
@@ -34,8 +36,16 @@ import com.kunminx.basicfacttesting.R;
  */
 public class BaseFragment extends Fragment {
 
+    protected AppCompatActivity mActivity;
     protected TextView mTvTitle;
     protected MaterialButton mJump, mBack;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mActivity = (AppCompatActivity) context;
+    }
+
 
     @Nullable
     @Override

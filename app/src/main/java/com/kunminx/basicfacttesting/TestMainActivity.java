@@ -55,9 +55,9 @@ public class TestMainActivity extends AppCompatActivity {
         startActivity(new Intent(this, AnimatorListActivity.class));
     }
 
-    public void testStatus(View view) {
+   /* public void testStatus(View view) {
         startActivity(new Intent(this, StatusActivity.class));
-    }
+    }*/
 
 
 }

@@ -10,4 +10,6 @@
     <string name="test_animator">test animator</string>
     <string name="test_status">test status</string>
     <string name="relearn_android_2019_kunminx">Relearn-Android © 2019 KunMinX</string>
+    <string name="jump_to_fragment_two">跳转到Fragment Two</string>
+    <string name="jump_to_fragment_three">跳转到Fragment Three</string>
 </resources>

@@ -104,7 +104,7 @@
                 android:onClick="testAnimator"
                 android:text="@string/test_animator" />
 
-            <com.google.android.material.button.MaterialButton
+            <!--<com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_test_status"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
@@ -112,7 +112,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:onClick="testStatus"
-                android:text="@string/test_status" />
+                android:text="@string/test_status" />-->
 
         </LinearLayout>
 

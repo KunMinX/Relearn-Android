@@ -16,11 +16,15 @@ package com.kunminx.basicfacttesting.test04_fragment_test;
  */
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+import com.kunminx.basicfacttesting.R;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Create by KunMinX at 19/6/27
@@ -33,6 +37,7 @@ public class OneTestFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mTvTitle.setText(OneTestFragment.class.getSimpleName());
+        mJump.setText(getString(R.string.jump_to_fragment_two));
 
         mJump.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +51,7 @@ public class OneTestFragment extends BaseFragment {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mActivity.getSupportFragmentManager().popBackStack();
             }
         });
     }

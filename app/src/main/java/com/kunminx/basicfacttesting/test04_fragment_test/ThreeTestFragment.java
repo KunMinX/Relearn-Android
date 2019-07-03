@@ -31,13 +31,7 @@ public class ThreeTestFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mTvTitle.setText(ThreeTestFragment.class.getSimpleName());
-
-        mJump.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        mJump.setVisibility(View.GONE);
 
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override

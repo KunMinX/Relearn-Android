@@ -19,6 +19,8 @@ package com.kunminx.basicfacttesting.test04_fragment_test;
 import android.os.Bundle;
 import android.view.View;
 
+import com.kunminx.basicfacttesting.R;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -27,23 +29,36 @@ import androidx.annotation.Nullable;
  */
 public class TwoTestFragment extends BaseFragment {
 
+    private TwoTestListener mListener;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mTvTitle.setText(TwoTestFragment.class.getSimpleName());
+        mJump.setText(getString(R.string.jump_to_fragment_three));
 
         mJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (mListener != null) {
+                    mListener.loadTwoTest();
+                }
             }
         });
 
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mActivity.getSupportFragmentManager().popBackStack();
             }
         });
+    }
+
+    public void setListener(TwoTestListener listener) {
+        this.mListener = listener;
+    }
+
+    public interface TwoTestListener {
+        void loadTwoTest();
     }
 }
