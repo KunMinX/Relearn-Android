@@ -71,7 +71,7 @@ public class OneActivity extends BaseLifeCycleActivity {
         });
 
         if (savedInstanceState != null) {
-           /* TAG_OF_AUTO_FRAGMENT = savedInstanceState.getString(STATE_OF_AUTO_FRAGMENT);
+            TAG_OF_AUTO_FRAGMENT = savedInstanceState.getString(STATE_OF_AUTO_FRAGMENT);
             mAutoFragment = getSupportFragmentManager().findFragmentByTag(TAG_OF_AUTO_FRAGMENT);
             getSupportFragmentManager().beginTransaction().show(mAutoFragment).commitAllowingStateLoss();
 
@@ -79,7 +79,7 @@ public class OneActivity extends BaseLifeCycleActivity {
             if (!TextUtils.isEmpty(TAG_OF_FRAGMENT)) {
                 mOneFragment = (OneFragment) getSupportFragmentManager().findFragmentByTag(TAG_OF_FRAGMENT);
                 getSupportFragmentManager().beginTransaction().show(mOneFragment).commitAllowingStateLoss();
-            }*/
+            }
 
             TAG_OF_AUTO_FRAGMENT = savedInstanceState.getString(STATE_OF_AUTO_FRAGMENT);
             mAutoFragment = getSupportFragmentManager().findFragmentByTag(TAG_OF_AUTO_FRAGMENT);
@@ -100,7 +100,7 @@ public class OneActivity extends BaseLifeCycleActivity {
             });
             TAG_OF_AUTO_FRAGMENT = OneAutoFragment.class.getSimpleName();
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frg_container_1, mAutoFragment, TAG_OF_AUTO_FRAGMENT)
+                    .add(R.id.frg_container_1, mAutoFragment, TAG_OF_AUTO_FRAGMENT)
 //                    .addToBackStack(null)
                     .commitAllowingStateLoss();
         }

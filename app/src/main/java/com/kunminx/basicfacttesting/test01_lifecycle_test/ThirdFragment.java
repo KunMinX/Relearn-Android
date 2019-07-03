@@ -24,7 +24,7 @@ public class ThirdFragment extends BaseLifeCycleFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_three, container, false);
+        return inflater.inflate(R.layout.fragment_lifecycler_three, container, false);
     }
 
     @Override
