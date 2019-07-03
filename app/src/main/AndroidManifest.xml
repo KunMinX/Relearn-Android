@@ -70,7 +70,7 @@
         <activity android:name=".test04_fragment_test.BetweenFragmentActivity" />
         <activity android:name=".test04_fragment_test.ViewPagerFragmentActivity" />
 
-        <activity android:name=".test.StatusActivity" />
+<!--        <activity android:name=".test.StatusActivity" />-->
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
