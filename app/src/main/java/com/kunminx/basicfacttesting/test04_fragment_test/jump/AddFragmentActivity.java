@@ -1,4 +1,4 @@
-package com.kunminx.basicfacttesting.test04_fragment_test;
+package com.kunminx.basicfacttesting.test04_fragment_test.jump;
 /*
  * Copyright (c) 2018-2019. KunMinX
  *
@@ -20,7 +20,6 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.kunminx.basicfacttesting.R;
 
@@ -57,10 +56,26 @@ public class AddFragmentActivity extends AppCompatActivity {
 
     private void loadSecondFragment() {
         TwoTestFragment fragment = new TwoTestFragment();
+        fragment.setListener(new TwoTestFragment.TwoTestListener() {
+            @Override
+            public void loadTwoTest() {
+                loadThirdFragment();
+            }
+        });
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, fragment,
                         TwoTestFragment.class.getSimpleName())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void loadThirdFragment() {
+        ThreeTestFragment fragment = new ThreeTestFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, fragment,
+                        ThreeTestFragment.class.getSimpleName())
                 .addToBackStack(null)
                 .commit();
     }

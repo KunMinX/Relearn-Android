@@ -1,4 +1,4 @@
-package com.kunminx.basicfacttesting.test04_fragment_test;
+package com.kunminx.basicfacttesting.test04_fragment_test.jump;
 /*
  * Copyright (c) 2018-2019. KunMinX
  *
@@ -18,8 +18,11 @@ package com.kunminx.basicfacttesting.test04_fragment_test;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
+import com.google.android.material.button.MaterialButton;
 import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.test04_fragment_test.BaseFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,11 +32,22 @@ import androidx.annotation.Nullable;
  */
 public class TwoTestFragment extends BaseFragment {
 
+    private TextView mTvTitle;
+    private MaterialButton mJump, mBack;
     private TwoTestListener mListener;
+
+    @Override
+    protected int getLayout() {
+        return R.layout.fragment_test_add;
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mTvTitle = view.findViewById(R.id.tv_tag);
+        mJump = view.findViewById(R.id.btn_jump);
+        mBack = view.findViewById(R.id.btn_back);
+
         mTvTitle.setText(TwoTestFragment.class.getSimpleName());
         mJump.setText(getString(R.string.jump_to_fragment_three));
 

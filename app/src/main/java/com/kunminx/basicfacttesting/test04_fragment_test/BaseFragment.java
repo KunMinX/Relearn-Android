@@ -34,11 +34,9 @@ import com.kunminx.basicfacttesting.R;
 /**
  * Create by KunMinX at 19/6/27
  */
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     protected AppCompatActivity mActivity;
-    protected TextView mTvTitle;
-    protected MaterialButton mJump, mBack;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -46,21 +44,14 @@ public class BaseFragment extends Fragment {
         mActivity = (AppCompatActivity) context;
     }
 
+    protected abstract int getLayout();
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_test_add, container, false);
+        View view = inflater.inflate(getLayout(), container, false);
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        mTvTitle = view.findViewById(R.id.tv_tag);
-        mJump = view.findViewById(R.id.btn_jump);
-        mBack = view.findViewById(R.id.btn_back);
-
-    }
 }

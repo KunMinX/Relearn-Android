@@ -6,11 +6,10 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.kunminx.basicfacttesting.test.StatusActivity;
 import com.kunminx.basicfacttesting.test01_lifecycle_test.OneActivity;
 import com.kunminx.basicfacttesting.test02_intent_test.IntentTestActivity;
 import com.kunminx.basicfacttesting.test03_task_test.StandardOneActivity;
-import com.kunminx.basicfacttesting.test04_fragment_test.AddFragmentActivity;
+import com.kunminx.basicfacttesting.test04_fragment_test.jump.AddFragmentActivity;
 import com.kunminx.basicfacttesting.test_animator.AnimatorListActivity;
 import com.kunminx.basicfacttesting.touch_dispatch_test.TestDispatchActivity;
 import com.kunminx.basicfacttesting.window_test.TestWindowActivity;

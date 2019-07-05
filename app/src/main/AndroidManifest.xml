@@ -66,9 +66,9 @@
         <activity android:name=".test_animator.AnimatorListActivity" />
         <activity android:name=".test_animator.AnimatorDetailActivity" />
 
-        <activity android:name=".test04_fragment_test.AddFragmentActivity" />
-        <activity android:name=".test04_fragment_test.BetweenFragmentActivity" />
-        <activity android:name=".test04_fragment_test.ViewPagerFragmentActivity" />
+        <activity android:name=".test04_fragment_test.jump.AddFragmentActivity" />
+        <activity android:name=".test04_fragment_test.between.BetweenFragmentActivity" />
+        <activity android:name=".test04_fragment_test.child.ViewPagerFragmentActivity" />
 
 <!--        <activity android:name=".test.StatusActivity" />-->
     </application>

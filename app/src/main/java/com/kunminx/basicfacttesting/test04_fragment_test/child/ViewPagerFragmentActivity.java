@@ -1,4 +1,4 @@
-package com.kunminx.basicfacttesting.test04_fragment_test;
+package com.kunminx.basicfacttesting.test04_fragment_test.child;
 /*
  * Copyright (c) 2018-2019. KunMinX
  *
