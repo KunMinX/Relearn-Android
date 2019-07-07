@@ -47,7 +47,7 @@ public class JetpackFirstFragment extends BaseJetpackFragment {
         mTvTitle = view.findViewById(R.id.tv_tag);
         mJump = view.findViewById(R.id.btn_jump);
         mBack = view.findViewById(R.id.btn_back);
-        
+
         mTvTitle.setText(JetpackFirstFragment.class.getSimpleName());
         mJump.setText(getString(R.string.jump_to_fragment_two));
 
@@ -75,4 +75,39 @@ public class JetpackFirstFragment extends BaseJetpackFragment {
     public interface OneTestListener {
         void loadTwoTest();
     }
+
+    private GpsManager1 mGpsManager;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mGpsManager = new GpsManager1();
+        getLifecycle().addObserver(mGpsManager);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getLifecycle().removeObserver(mGpsManager);
+    }
+
+    /*@Override
+    public void onResume() {
+        super.onResume();
+        mGpsManager.onResume();
+        mGpsManager.setActive(true);
+    }
+
+    @Override
+    public void onPause() {
+        mGpsManager.setActive(false);
+        mGpsManager.onPause();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mGpsManager.onDestroy();
+        super.onDestroy();
+    }*/
 }
