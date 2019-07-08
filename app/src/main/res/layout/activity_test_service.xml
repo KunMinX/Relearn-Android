@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start_service"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="startService"
+            android:text="start service" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_stop_service"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="stopService"
+            android:text="stop service" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_bind_service"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="bindService"
+            android:text="bind service" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_unbind_service"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="24dp"
+            android:onClick="unbindService"
+            android:text="unbind service" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start_intentService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="startIntentService"
+            android:text="start intentService" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_stop_intentService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="stopIntentService"
+            android:text="stop intentService" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_bind_intentService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="bindIntentService"
+            android:text="bind intentService" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_unbind_intentService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="24dp"
+            android:onClick="unbindIntentService"
+            android:text="unbind intentService" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start_foregroundService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="startForegroundService"
+            android:text="start foregroundService" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_stop_foregroundService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="stopForegroundService"
+            android:text="stop foregroundService" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_bind_foregroundService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="bindForegroundService"
+            android:text="bind foregroundService" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_unbind_foregroundService"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="unbindForegroundService"
+            android:text="unbind foregroundService" />
+
+    </LinearLayout>
+
+</ScrollView>
+
+
