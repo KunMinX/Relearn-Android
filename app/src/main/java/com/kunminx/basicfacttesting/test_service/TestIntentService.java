@@ -22,4 +22,10 @@ public class TestIntentService extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
 
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        
+    }
 }
