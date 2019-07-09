@@ -11,6 +11,7 @@ import io.reactivex.ObservableOnSubscribe;
 /**
  * Create by KunMinX at 19/7/7
  */
+
 public class GpsManager1 implements DefaultLifecycleObserver {
 
     private boolean mIsActive;
@@ -43,5 +44,25 @@ public class GpsManager1 implements DefaultLifecycleObserver {
                 }
             }
         }).subscribe();
+    }
+
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+
+    }
+
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+
+    }
+
+    @Override
+    public void onStop(@NonNull LifecycleOwner owner) {
+
+    }
+
+    @Override
+    public void onDestroy(@NonNull LifecycleOwner owner) {
+
     }
 }
