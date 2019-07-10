@@ -45,24 +45,4 @@ public class GpsManager1 implements DefaultLifecycleObserver {
             }
         }).subscribe();
     }
-
-    @Override
-    public void onCreate(@NonNull LifecycleOwner owner) {
-
-    }
-
-    @Override
-    public void onStart(@NonNull LifecycleOwner owner) {
-
-    }
-
-    @Override
-    public void onStop(@NonNull LifecycleOwner owner) {
-
-    }
-
-    @Override
-    public void onDestroy(@NonNull LifecycleOwner owner) {
-
-    }
 }
