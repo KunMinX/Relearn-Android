@@ -17,44 +17,44 @@ public class BaseLifeCycleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         Log.i(TAG, className + "--onCreate()");
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     protected void onStart() {
-        super.onStart();
         Log.i(TAG, className + "--onStart()");
+        super.onStart();
     }
 
     @Override
     protected void onResume() {
-        super.onResume();
         Log.i(TAG, className + "--onResumed()");
+        super.onResume();
     }
 
     @Override
     protected void onPause() {
-        super.onPause();
         Log.i(TAG, className + "--onPause()");
+        super.onPause();
     }
 
     @Override
     protected void onStop() {
-        super.onStop();
         Log.i(TAG, className + "--onStop()");
+        super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         Log.i(TAG, className + "--onDestroy()");
+        super.onDestroy();
     }
 
     @Override
     protected void onRestart() {
-        super.onRestart();
         Log.i(TAG, className + "--onRestart()");
+        super.onRestart();
     }
 
     @Override
