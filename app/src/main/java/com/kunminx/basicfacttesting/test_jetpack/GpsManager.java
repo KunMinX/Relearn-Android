@@ -9,6 +9,15 @@ import io.reactivex.ObservableOnSubscribe;
  */
 public class GpsManager {
 
+    private static GpsManager sGpsManager=new GpsManager();
+
+    public static GpsManager getInstance() {
+        return sGpsManager;
+    }
+
+    private GpsManager() {
+    }
+
     private boolean mIsActive;
 
     public boolean isActive() {

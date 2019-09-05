@@ -22,7 +22,6 @@ import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 import com.kunminx.basicfacttesting.R;
-import com.kunminx.basicfacttesting.test04_fragment_test.BaseFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -76,19 +75,15 @@ public class JetpackFirstFragment extends BaseJetpackFragment {
         void loadTwoTest();
     }
 
-    private GpsManager1 mGpsManager;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mGpsManager = new GpsManager1();
-        getLifecycle().addObserver(mGpsManager);
+        getLifecycle().addObserver(LifeGpsManager.getInstance());
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        getLifecycle().removeObserver(mGpsManager);
     }
 
     /*@Override

@@ -124,6 +124,16 @@
                 android:onClick="testService"
                 android:text="@string/test_service" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_test_jetpack"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:onClick="testJetpack"
+                android:text="@string/test_jetpack" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

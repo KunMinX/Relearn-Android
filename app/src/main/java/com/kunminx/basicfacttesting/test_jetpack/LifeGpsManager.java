@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -12,7 +13,16 @@ import io.reactivex.ObservableOnSubscribe;
  * Create by KunMinX at 19/7/7
  */
 
-public class GpsManager1 implements DefaultLifecycleObserver {
+public class LifeGpsManager implements DefaultLifecycleObserver {
+
+    private static LifeGpsManager sLifeGpsManager = new LifeGpsManager();
+
+    public static LifeGpsManager getInstance() {
+        return sLifeGpsManager;
+    }
+
+    private LifeGpsManager() {
+    }
 
     private boolean mIsActive;
 
