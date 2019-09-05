@@ -17,27 +17,38 @@ package com.kunminx.basicfacttesting.test_jetpack;
 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
 import com.kunminx.basicfacttesting.R;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 /**
  * Create by KunMinX at 19/6/27
  */
-public class JetpackFirstFragment extends BaseJetpackFragment {
+public class JetpackFirstFragment extends Fragment {
 
     private TextView mTvTitle;
     private MaterialButton mJump, mBack;
     private OneTestListener mListener;
 
     @Override
-    protected int getLayout() {
-        return R.layout.fragment_test_add;
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLifecycle().addObserver(LifeGpsManager.getInstance());
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_jetpack_first, container, false);
+        return view;
     }
 
     @Override
@@ -62,7 +73,7 @@ public class JetpackFirstFragment extends BaseJetpackFragment {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mActivity.getSupportFragmentManager().popBackStack();
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
     }
@@ -73,17 +84,6 @@ public class JetpackFirstFragment extends BaseJetpackFragment {
 
     public interface OneTestListener {
         void loadTwoTest();
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getLifecycle().addObserver(LifeGpsManager.getInstance());
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 
     /*@Override

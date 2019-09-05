@@ -33,9 +33,7 @@ public class JetpackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jetpack);
 
-        if (savedInstanceState == null) {
-            loadFirstFragment();
-        }
+        loadFirstFragment();
     }
 
     private void loadFirstFragment() {

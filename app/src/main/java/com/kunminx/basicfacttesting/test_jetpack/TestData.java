@@ -4,10 +4,10 @@ package com.kunminx.basicfacttesting.test_jetpack;
  * Create by KunMinX at 19/9/5
  */
 public class TestData {
-
     private String name;
     private int age;
     private boolean visible;
+    private String msg;
 
     public TestData(String name, int age, boolean visible) {
         this.name = name;
@@ -38,4 +38,13 @@ public class TestData {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
 }

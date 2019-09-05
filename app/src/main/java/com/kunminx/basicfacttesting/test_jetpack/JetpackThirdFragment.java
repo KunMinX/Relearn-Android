@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.kunminx.basicfacttesting.R;
@@ -51,8 +52,9 @@ public class JetpackThirdFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_test_databinding, container, false);
         mBinding = FragmentTestDatabindingBinding.bind(view);
+        mBinding.setLifecycleOwner(this);
         mBinding.setClickProxy(new ClickProxy());
-
+        mBinding.setVm(mViewModel);
         return view;
     }
 
@@ -60,16 +62,40 @@ public class JetpackThirdFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
     }
 
     public class ClickProxy {
-        public void navigate() {
-
+        public void nameChange() {
+            TestData testData = mViewModel.getTestData().getValue();
+            testData.setName(String.valueOf(System.currentTimeMillis()));
+            //...
+            // 上述测试数据假设来自数据层，每次数据层请求得到数据后，只需 liveData setValue，对数据做出刷新，
+            // 绑定了该 liveData 的控件的状态也会随之更新。是谓数据驱动
+            mViewModel.getTestData().setValue(testData);
         }
 
-        public void close() {
+        public void ageChange() {
+            TestData testData = mViewModel.getTestData().getValue();
+            testData.setAge(mViewModel.getTestData().getValue().getAge() + 1);
+            //...
+            // 上述测试数据假设来自数据层，每次数据层请求得到数据后，只需 liveData setValue，对数据做出刷新，
+            // 绑定了该 liveData 的控件的状态也会随之更新。是谓数据驱动
+            mViewModel.getTestData().setValue(testData);
+        }
 
+        public void showChange() {
+            TestData testData = mViewModel.getTestData().getValue();
+            testData.setVisible(!mViewModel.getTestData().getValue().isVisible());
+            //...
+            // 上述测试数据假设来自数据层，每次数据层请求得到数据后，只需 liveData setValue，对数据做出刷新，
+            // 绑定了该 liveData 的控件的状态也会随之更新。是谓数据驱动
+            mViewModel.getTestData().setValue(testData);
+        }
+
+        public void showDoubleBindingResult() {
+            //每次都能获取到最新的、由控件变化时自动推到状态变量的状态值
+            Toast.makeText(getActivity().getApplicationContext(),
+                    mViewModel.getTestData().getValue().getMsg(), Toast.LENGTH_SHORT).show();
         }
     }
 

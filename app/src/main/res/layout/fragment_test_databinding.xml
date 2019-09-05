@@ -5,12 +5,14 @@
     <data>
 
         <variable
-            name="data"
-            type="com.kunminx.basicfacttesting.test_jetpack.TestData" />
+            name="vm"
+            type="com.kunminx.basicfacttesting.test_jetpack.TestDataViewModel" />
 
         <variable
             name="clickProxy"
             type="com.kunminx.basicfacttesting.test_jetpack.JetpackThirdFragment.ClickProxy" />
+
+        <import type="android.view.View" />
 
     </data>
 
@@ -33,27 +35,77 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
+            android:text="@{vm.testData.name}"
             android:textSize="20sp"
             tools:text="name" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_jump"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        <TextView
+            android:id="@+id/tv_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:onClick=""
-            tools:text="跳转到Fragment" />
+            android:padding="12dp"
+            android:text="@{String.valueOf(vm.testData.age)}"
+            android:textSize="20sp"
+            tools:text="age" />
+
+        <TextView
+            android:id="@+id/tv_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="show"
+            android:textSize="20sp"
+            android:visibility="@{vm.testData.visible?View.VISIBLE:View.GONE}" />
+
+        <EditText
+            android:id="@+id/et_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="double binding"
+            android:padding="12dp"
+            android:text="@={vm.testData.msg}"
+            android:textSize="20sp"
+            tools:text="double binding" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_back"
+            android:id="@+id/btn_name"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="关闭此fragment" />
+            android:onClick="@{()->clickProxy.nameChange()}"
+            android:text="更改 name" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_age"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="@{()->clickProxy.ageChange()}"
+            android:text="更改 age" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_show"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="@{()->clickProxy.showChange()}"
+            android:text="更改 show" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_double"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="@{()->clickProxy.showDoubleBindingResult()}"
+            android:text="查看 double binding 结果" />
 
 
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.kunminx.basicfacttesting.test_jetpack;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 /**
@@ -7,9 +8,14 @@ import androidx.lifecycle.ViewModel;
  */
 public class TestDataViewModel extends ViewModel {
 
-    private TestData mTestData = new TestData("test", 12, true);
+    private MutableLiveData<TestData> mData;
 
-    public TestData getTestData() {
-        return mTestData;
+    public MutableLiveData<TestData> getTestData() {
+        if (mData == null) {
+            mData = new MutableLiveData<>();
+            TestData testData = new TestData("test", 12, true);
+            mData.setValue(testData);
+        }
+        return mData;
     }
 }

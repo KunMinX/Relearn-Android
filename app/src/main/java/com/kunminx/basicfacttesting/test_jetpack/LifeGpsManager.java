@@ -47,11 +47,11 @@ public class LifeGpsManager implements DefaultLifecycleObserver {
         Observable.create(new ObservableOnSubscribe<Object>() {
             @Override
             public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
-                for (; ; ) {
+                /*for (; ; ) {
                     if (!mIsActive) {
                         return;
                     }
-                }
+                }*/
             }
         }).subscribe();
     }
