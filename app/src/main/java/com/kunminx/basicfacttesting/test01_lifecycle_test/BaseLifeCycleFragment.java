@@ -1,11 +1,13 @@
 package com.kunminx.basicfacttesting.test01_lifecycle_test;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +22,19 @@ public class BaseLifeCycleFragment extends Fragment {
     protected String className = getClass().getSimpleName();
     protected static final String TAG = "info";
 
+    @Nullable
+    @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        Log.d(TAG, className + "--onCreateAnimation()");
+        return super.onCreateAnimation(transit, enter, nextAnim);
+    }
+
+    @Nullable
+    @Override
+    public Animator onCreateAnimator(int transit, boolean enter, int nextAnim) {
+        Log.d(TAG, className + "--onCreateAnimator()");
+        return super.onCreateAnimator(transit, enter, nextAnim);
+    }
 
     @Override
     public void onAttach(Context context) {

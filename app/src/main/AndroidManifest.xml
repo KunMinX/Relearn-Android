@@ -73,6 +73,8 @@
         <!--        <activity android:name=".test.StatusActivity" />-->
 
         <activity android:name=".test_service.TestServiceActivity" />
+
+        <activity android:name=".test_jetpack.JetpackActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

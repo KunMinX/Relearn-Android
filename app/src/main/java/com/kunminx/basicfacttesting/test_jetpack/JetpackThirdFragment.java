@@ -17,44 +17,60 @@ package com.kunminx.basicfacttesting.test_jetpack;
 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.databinding.FragmentTestDatabindingBinding;
 import com.kunminx.basicfacttesting.test04_fragment_test.BaseFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 /**
  * Create by KunMinX at 19/6/27
  */
-public class JetpackThirdFragment extends BaseJetpackFragment {
+public class JetpackThirdFragment extends Fragment {
 
-    private TextView mTvTitle;
-    private MaterialButton mJump, mBack;
+    private FragmentTestDatabindingBinding mBinding;
+    private TestDataViewModel mViewModel;
 
     @Override
-    protected int getLayout() {
-        return R.layout.fragment_test_add;
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mViewModel = ViewModelProviders.of(this).get(TestDataViewModel.class);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_test_databinding, container, false);
+        mBinding = FragmentTestDatabindingBinding.bind(view);
+        mBinding.setClickProxy(new ClickProxy());
+
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mTvTitle = view.findViewById(R.id.tv_tag);
-        mJump = view.findViewById(R.id.btn_jump);
-        mBack = view.findViewById(R.id.btn_back);
 
-        mTvTitle.setText(JetpackThirdFragment.class.getSimpleName());
-        mJump.setVisibility(View.GONE);
 
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
+
+    public class ClickProxy {
+        public void navigate() {
+
+        }
+
+        public void close() {
+
+        }
+    }
+
 }
