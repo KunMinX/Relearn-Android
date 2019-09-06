@@ -1,12 +1,13 @@
 package com.kunminx.basicfacttesting.test_jetpack;
 
+import androidx.databinding.ObservableField;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 /**
  * Create by KunMinX at 19/9/5
  */
-public class TestDataViewModel extends ViewModel {
+public class TestDataLiveDataViewModel extends ViewModel {
 
     private MutableLiveData<TestData> mData;
 

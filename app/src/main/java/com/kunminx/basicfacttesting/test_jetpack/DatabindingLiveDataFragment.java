@@ -20,38 +20,35 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.button.MaterialButton;
-import com.kunminx.basicfacttesting.R;
-import com.kunminx.basicfacttesting.databinding.FragmentTestDatabindingBinding;
-import com.kunminx.basicfacttesting.test04_fragment_test.BaseFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.databinding.FragmentTestDatabindingLivedataBinding;
+
 /**
  * Create by KunMinX at 19/6/27
  */
-public class JetpackThirdFragment extends Fragment {
+public class DatabindingLiveDataFragment extends Fragment {
 
-    private FragmentTestDatabindingBinding mBinding;
-    private TestDataViewModel mViewModel;
+    private FragmentTestDatabindingLivedataBinding mBinding;
+    private TestDataLiveDataViewModel mViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(TestDataViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(TestDataLiveDataViewModel.class);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_test_databinding, container, false);
-        mBinding = FragmentTestDatabindingBinding.bind(view);
+        View view = inflater.inflate(R.layout.fragment_test_databinding_livedata, container, false);
+        mBinding = FragmentTestDatabindingLivedataBinding.bind(view);
         mBinding.setLifecycleOwner(this);
         mBinding.setClickProxy(new ClickProxy());
         mBinding.setVm(mViewModel);
@@ -68,28 +65,16 @@ public class JetpackThirdFragment extends Fragment {
         public void nameChange() {
             TestData testData = mViewModel.getTestData().getValue();
             testData.setName(String.valueOf(System.currentTimeMillis()));
-            //...
-            // 上述测试数据假设来自数据层，每次数据层请求得到数据后，只需 liveData setValue，对数据做出刷新，
-            // 绑定了该 liveData 的控件的状态也会随之更新。是谓数据驱动
-            mViewModel.getTestData().setValue(testData);
         }
 
         public void ageChange() {
             TestData testData = mViewModel.getTestData().getValue();
             testData.setAge(mViewModel.getTestData().getValue().getAge() + 1);
-            //...
-            // 上述测试数据假设来自数据层，每次数据层请求得到数据后，只需 liveData setValue，对数据做出刷新，
-            // 绑定了该 liveData 的控件的状态也会随之更新。是谓数据驱动
-            mViewModel.getTestData().setValue(testData);
         }
 
         public void showChange() {
             TestData testData = mViewModel.getTestData().getValue();
             testData.setVisible(!mViewModel.getTestData().getValue().isVisible());
-            //...
-            // 上述测试数据假设来自数据层，每次数据层请求得到数据后，只需 liveData setValue，对数据做出刷新，
-            // 绑定了该 liveData 的控件的状态也会随之更新。是谓数据驱动
-            mViewModel.getTestData().setValue(testData);
         }
 
         public void showDoubleBindingResult() {
