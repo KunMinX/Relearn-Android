@@ -33,64 +33,7 @@ public class JetpackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jetpack);
 
-        loadFirstFragment();
-    }
+        FragmentNavigator.getInstance().loadRootFragment(new JetpackFirstFragment());
 
-    private void loadFirstFragment() {
-        JetpackFirstFragment fragment = new JetpackFirstFragment();
-        fragment.setListener(new JetpackFirstFragment.OneTestListener() {
-            @Override
-            public void loadTwoTest() {
-                loadSecondFragment();
-            }
-        });
-
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment,
-                        JetpackFirstFragment.class.getSimpleName())
-                .addToBackStack(null)
-                .commit();
-    }
-
-    private void loadSecondFragment() {
-        JetpackSecondFragment fragment = new JetpackSecondFragment();
-        fragment.setListener(new JetpackSecondFragment.TwoTestListener() {
-            @Override
-            public void loadTwoTest() {
-                loadThirdFragment();
-            }
-        });
-
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment,
-                        JetpackSecondFragment.class.getSimpleName())
-                .addToBackStack(null)
-                .commit();
-    }
-
-    private void loadThirdFragment() {
-        /*DatabindingLiveDataFragment fragment = new DatabindingLiveDataFragment();
-
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment,
-                        DatabindingLiveDataFragment.class.getSimpleName())
-                .addToBackStack(null)
-                .commit();*/
-
-        DatabindingObservaleFragment fragment = new DatabindingObservaleFragment();
-
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment,
-                        DatabindingObservaleFragment.class.getSimpleName())
-                .addToBackStack(null)
-                .commit();
-
-        /*DatabindingObservaleFieldFragment fragment = new DatabindingObservaleFieldFragment();
-
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment,
-                        DatabindingObservaleFieldFragment.class.getSimpleName())
-                .addToBackStack(null)
-                .commit();*/
     }
 }

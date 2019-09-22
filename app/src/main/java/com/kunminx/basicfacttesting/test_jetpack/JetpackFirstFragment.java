@@ -28,15 +28,17 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
 import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.databinding.FragmentJetpackFirstBinding;
 
 /**
+ * 这个 fragment 用于 LifeCycler 的示例，
+ * 可以直观地看到，LifeCycler 加持的 lifeGpsManager 解决了生命周期管理的一致性问题。
+ * <p>
  * Create by KunMinX at 19/6/27
  */
 public class JetpackFirstFragment extends Fragment {
 
-    private TextView mTvTitle;
-    private MaterialButton mJump, mBack;
-    private OneTestListener mListener;
+    private FragmentJetpackFirstBinding mBinding;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,42 +50,22 @@ public class JetpackFirstFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_jetpack_first, container, false);
+        mBinding = FragmentJetpackFirstBinding.bind(view);
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mTvTitle = view.findViewById(R.id.tv_tag);
-        mJump = view.findViewById(R.id.btn_jump);
-        mBack = view.findViewById(R.id.btn_back);
 
-        mTvTitle.setText(JetpackFirstFragment.class.getSimpleName());
-        mJump.setText(getString(R.string.jump_to_fragment_two));
+        mBinding.tvTag.setText(JetpackFirstFragment.class.getSimpleName());
+        mBinding.btnJump.setText(getString(R.string.jump_to_fragment_two));
 
-        mJump.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.loadTwoTest();
-                }
-            }
+        mBinding.btnJump.setOnClickListener(v -> {
+            FragmentNavigator.getInstance().navigate(JetpackFirstFragment.this, new JetpackSecondFragment());
         });
 
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
-    }
-
-    public void setListener(OneTestListener listener) {
-        this.mListener = listener;
-    }
-
-    public interface OneTestListener {
-        void loadTwoTest();
+        mBinding.btnBack.setOnClickListener(v -> FragmentNavigator.getInstance().navigateUp());
     }
 
     /*@Override

@@ -20,64 +20,50 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.google.android.material.button.MaterialButton;
-import com.kunminx.basicfacttesting.R;
-import com.kunminx.basicfacttesting.test04_fragment_test.BaseFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.databinding.FragmentJetpackSecondBinding;
 
 /**
  * Create by KunMinX at 19/6/27
  */
 public class JetpackSecondFragment extends Fragment {
 
-    private TextView mTvTitle;
-    private MaterialButton mJump, mBack;
-    private TwoTestListener mListener;
+    private FragmentJetpackSecondBinding mBinding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_jetpack_second, container, false);
+        mBinding = FragmentJetpackSecondBinding.bind(view);
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mTvTitle = view.findViewById(R.id.tv_tag);
-        mJump = view.findViewById(R.id.btn_jump);
-        mBack = view.findViewById(R.id.btn_back);
 
-        mTvTitle.setText(JetpackSecondFragment.class.getSimpleName());
-        mJump.setText(getString(R.string.jump_to_fragment_three));
+        mBinding.tvTag.setText(JetpackSecondFragment.class.getSimpleName());
 
-        mJump.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.loadTwoTest();
-                }
-            }
-        });
+        mBinding.btnJump1.setOnClickListener(v ->
+                FragmentNavigator.getInstance().navigate(JetpackSecondFragment.this, new DatabindingLiveDataFragment())
+        );
 
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        mBinding.btnJump2.setOnClickListener(v ->
+                FragmentNavigator.getInstance().navigate(JetpackSecondFragment.this, new DatabindingObservaleFieldFragment())
+        );
+
+        mBinding.btnJump3.setOnClickListener(v ->
+                FragmentNavigator.getInstance().navigate(JetpackSecondFragment.this, new DatabindingObservaleFragment())
+        );
+
+        mBinding.btnBack.setOnClickListener(v ->
+                FragmentNavigator.getInstance().navigateUp()
+        );
     }
 
-    public void setListener(TwoTestListener listener) {
-        this.mListener = listener;
-    }
-
-    public interface TwoTestListener {
-        void loadTwoTest();
-    }
 }
