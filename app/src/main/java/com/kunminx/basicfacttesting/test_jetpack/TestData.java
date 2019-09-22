@@ -3,8 +3,6 @@ package com.kunminx.basicfacttesting.test_jetpack;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
-import com.kunminx.basicfacttesting.BR;
-
 /**
  * Create by KunMinX at 19/9/5
  */

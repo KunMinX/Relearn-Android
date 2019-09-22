@@ -28,27 +28,27 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.kunminx.basicfacttesting.R;
-import com.kunminx.basicfacttesting.databinding.FragmentTestDatabindingObserveBinding;
+import com.kunminx.basicfacttesting.databinding.FragmentTestDatabindingObserveFieldBinding;
 
 /**
  * Create by KunMinX at 19/6/27
  */
-public class DatabindingObservaleFragment extends Fragment {
+public class DatabindingObservaleFieldFragment extends Fragment {
 
-    private FragmentTestDatabindingObserveBinding mBinding;
-    private TestDataObservableViewModel mViewModel;
+    private FragmentTestDatabindingObserveFieldBinding mBinding;
+    private TestDataObservableFieldViewModel mViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(TestDataObservableViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(TestDataObservableFieldViewModel.class);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_test_databinding_observe, container, false);
-        mBinding = FragmentTestDatabindingObserveBinding.bind(view);
+        View view = inflater.inflate(R.layout.fragment_test_databinding_observe_field, container, false);
+        mBinding = FragmentTestDatabindingObserveFieldBinding.bind(view);
         mBinding.setLifecycleOwner(this);
         mBinding.setClickProxy(new ClickProxy());
         mBinding.setVm(mViewModel);
@@ -63,24 +63,21 @@ public class DatabindingObservaleFragment extends Fragment {
 
     public class ClickProxy {
         public void nameChange() {
-            TestData testData = mViewModel.getTestData();
-            testData.setName(String.valueOf(System.currentTimeMillis()));
+            mViewModel.getName().set(String.valueOf(System.currentTimeMillis()));
         }
 
         public void ageChange() {
-            TestData testData = mViewModel.getTestData();
-            testData.setAge(mViewModel.getTestData().getAge() + 1);
+            mViewModel.getAge().set(mViewModel.getAge().get() + 1);
         }
 
         public void showChange() {
-            TestData testData = mViewModel.getTestData();
-            testData.setVisible(!mViewModel.getTestData().isVisible());
+            mViewModel.getVisible().set(!mViewModel.getVisible().get());
         }
 
         public void showDoubleBindingResult() {
             //每次都能获取到最新的、由控件变化时自动推到状态变量的状态值
             Toast.makeText(getActivity().getApplicationContext(),
-                    mViewModel.getTestData().getMsg(), Toast.LENGTH_SHORT).show();
+                    mViewModel.getMsg().get(), Toast.LENGTH_SHORT).show();
         }
     }
 

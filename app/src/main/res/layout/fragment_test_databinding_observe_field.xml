@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.kunminx.basicfacttesting.test_jetpack.TestDataObservableFieldViewModel" />
+
+        <variable
+            name="clickProxy"
+            type="com.kunminx.basicfacttesting.test_jetpack.DatabindingObservaleFieldFragment.ClickProxy" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textSize="20sp"
+            tools:text="Fragment DataBinding Test" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="@{vm.name}"
+            android:textSize="20sp"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="@{String.valueOf(vm.age)}"
+            android:textSize="20sp"
+            tools:text="age" />
+
+        <TextView
+            android:id="@+id/tv_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="show"
+            android:textSize="20sp"
+            android:visibility="@{vm.visible?View.VISIBLE:View.GONE}" />
+
+        <EditText
+            android:id="@+id/et_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="double binding"
+            android:padding="12dp"
+            android:text="@={vm.msg}"
+            android:textSize="20sp"
+            tools:text="double binding" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_name"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="@{()->clickProxy.nameChange()}"
+            android:text="更改 name" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_age"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="@{()->clickProxy.ageChange()}"
+            android:text="更改 age" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_show"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="@{()->clickProxy.showChange()}"
+            android:text="更改 show" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_double"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="@{()->clickProxy.showDoubleBindingResult()}"
+            android:text="查看 double binding 结果" />
+
+
+    </LinearLayout>
+
+</layout>

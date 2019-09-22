@@ -69,19 +69,27 @@ public class JetpackActivity extends AppCompatActivity {
     }
 
     private void loadThirdFragment() {
-        DatabindingLiveDataFragment fragment = new DatabindingLiveDataFragment();
+        /*DatabindingLiveDataFragment fragment = new DatabindingLiveDataFragment();
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, fragment,
                         DatabindingLiveDataFragment.class.getSimpleName())
                 .addToBackStack(null)
-                .commit();
+                .commit();*/
 
-        /*DatabindingObservaleFragment fragment = new DatabindingObservaleFragment();
+        DatabindingObservaleFragment fragment = new DatabindingObservaleFragment();
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, fragment,
                         DatabindingObservaleFragment.class.getSimpleName())
+                .addToBackStack(null)
+                .commit();
+
+        /*DatabindingObservaleFieldFragment fragment = new DatabindingObservaleFieldFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, fragment,
+                        DatabindingObservaleFieldFragment.class.getSimpleName())
                 .addToBackStack(null)
                 .commit();*/
     }
