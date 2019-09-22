@@ -65,7 +65,7 @@ public class JetpackFirstFragment extends Fragment {
             FragmentNavigator.getInstance().navigate(JetpackFirstFragment.this, new JetpackSecondFragment());
         });
 
-        mBinding.btnBack.setOnClickListener(v -> FragmentNavigator.getInstance().navigateUp());
+        mBinding.btnBack.setOnClickListener(v -> getActivity().finish());
     }
 
     /*@Override

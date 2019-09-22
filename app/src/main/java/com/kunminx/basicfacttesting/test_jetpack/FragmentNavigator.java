@@ -30,7 +30,7 @@ public class FragmentNavigator {
     }
 
     /**
-     * //TODO 还要重载一个自定义动画的方法
+     *
      * <p>
      * add hide fragment
      *
@@ -125,6 +125,5 @@ public class FragmentNavigator {
         return mFragmentManager.findFragmentByTag(tag);
     }
 
-    //TODO 这边还需要一个，能回退到指定 frgament 的方法，按顺序 remove 其他 fragment 的
 
 }

@@ -33,6 +33,8 @@ public class JetpackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jetpack);
 
+        FragmentNavigator.getInstance().init(this, R.id.fragment_container);
+
         FragmentNavigator.getInstance().loadRootFragment(new JetpackFirstFragment());
 
     }
