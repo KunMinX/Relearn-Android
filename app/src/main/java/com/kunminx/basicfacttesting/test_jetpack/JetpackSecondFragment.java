@@ -20,10 +20,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.kunminx.basicfacttesting.R;
 import com.kunminx.basicfacttesting.databinding.FragmentJetpackSecondBinding;
@@ -34,6 +36,13 @@ import com.kunminx.basicfacttesting.databinding.FragmentJetpackSecondBinding;
 public class JetpackSecondFragment extends Fragment {
 
     private FragmentJetpackSecondBinding mBinding;
+    private TestLiveDataViewModel mTestLiveDataViewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mTestLiveDataViewModel = ViewModelProviders.of(getActivity()).get(TestLiveDataViewModel.class);
+    }
 
     @Nullable
     @Override
@@ -64,6 +73,37 @@ public class JetpackSecondFragment extends Fragment {
         mBinding.btnBack.setOnClickListener(v ->
                 FragmentNavigator.getInstance().navigateUp()
         );
+
+        mBinding.btnLivedata.setOnClickListener(v -> {
+            mTestLiveDataViewModel.requestData();
+        });
+
+        mBinding.btnExpLivedata.setOnClickListener(v -> {
+            mTestLiveDataViewModel.requestExpectData();
+        });
+
+        // LiveData 的一个 bug，当使用共享 ViewModel 时，下次进入该页面，会倒灌旧数据。
+        // 如果你不停地关闭页面，可清掉进程再进入该项目。
+        // 目前查出的原因是，observe.lastVersion == -1 而 version == 0，导致的进入页面 observe 时会受到一次推送，
+        // 所以找到的解决办法是，通过 hook 来在 liveData 创建时为 lastVersion 赋值
+        mTestLiveDataViewModel.getLiveData().observe(this, aBoolean -> {
+            if (aBoolean) {
+//                FragmentNavigator.getInstance().navigateUp();
+                Toast.makeText(getContext(), "xxx", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // 感谢这位仁兄提供的解决方案：
+        // https://blog.csdn.net/geyuecang/article/details/89028283
+        mTestLiveDataViewModel.getExpectedLiveData().observe(this, aBoolean -> {
+            if (aBoolean) {
+                FragmentNavigator.getInstance().navigateUp();
+            }
+        });
+
+        if (savedInstanceState == null) {
+            mTestLiveDataViewModel.requestData();
+        }
     }
 
 }

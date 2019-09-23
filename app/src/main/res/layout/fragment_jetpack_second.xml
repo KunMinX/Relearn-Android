@@ -54,8 +54,25 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="关闭此fragment" />
+            android:text="关闭此 fragment" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_livedata"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="向后台发送一个请求" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_exp_livedata"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="向后台发送一个请求(符合预期的结果)" />
 
     </LinearLayout>
 </layout>

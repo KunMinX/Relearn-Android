@@ -25,6 +25,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.button.MaterialButton;
 import com.kunminx.basicfacttesting.R;
@@ -39,11 +40,13 @@ import com.kunminx.basicfacttesting.databinding.FragmentJetpackFirstBinding;
 public class JetpackFirstFragment extends Fragment {
 
     private FragmentJetpackFirstBinding mBinding;
+    private TestLiveDataViewModel mTestLiveDataViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getLifecycle().addObserver(LifeGpsManager.getInstance());
+        mTestLiveDataViewModel = ViewModelProviders.of(getActivity()).get(TestLiveDataViewModel.class);
     }
 
     @Nullable
@@ -66,6 +69,7 @@ public class JetpackFirstFragment extends Fragment {
         });
 
         mBinding.btnBack.setOnClickListener(v -> getActivity().finish());
+
     }
 
     /*@Override
