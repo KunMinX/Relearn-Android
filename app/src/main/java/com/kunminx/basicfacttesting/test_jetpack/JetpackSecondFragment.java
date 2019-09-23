@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,11 +36,13 @@ public class JetpackSecondFragment extends Fragment {
 
     private FragmentJetpackSecondBinding mBinding;
     private TestLiveDataViewModel mTestLiveDataViewModel;
+    private BusViewModel mBusViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTestLiveDataViewModel = ViewModelProviders.of(getActivity()).get(TestLiveDataViewModel.class);
+        mBusViewModel = ViewModelProviders.of(getActivity()).get(BusViewModel.class);
     }
 
     @Nullable
@@ -78,8 +79,10 @@ public class JetpackSecondFragment extends Fragment {
             mTestLiveDataViewModel.requestData();
         });
 
+        // 正常情况下，应该是从别的页面发起了回调的请求，然后本页面观察到并处理
+        // 这里为了直观，而把 request 方法用在了本页面
         mBinding.btnExpLivedata.setOnClickListener(v -> {
-            mTestLiveDataViewModel.requestExpectData();
+            mBusViewModel.requestExpectData();
         });
 
         // LiveData 的一个 bug，当使用共享 ViewModel 时，下次进入该页面，会倒灌旧数据。
@@ -95,7 +98,7 @@ public class JetpackSecondFragment extends Fragment {
 
         // 感谢这位仁兄提供的解决方案：
         // https://blog.csdn.net/geyuecang/article/details/89028283
-        mTestLiveDataViewModel.getExpectedLiveData().observe(this, aBoolean -> {
+        mBusViewModel.closeCallback.observe(this, aBoolean -> {
             if (aBoolean) {
                 FragmentNavigator.getInstance().navigateUp();
             }

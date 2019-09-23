@@ -21,7 +21,7 @@ public class DataRepository {
         liveData.setValue(true);
     }
 
-    public void requestExpectData(ExpectedLiveData<Boolean> liveData){
+    public void requestExpectData(BusLiveData<Boolean> liveData){
         liveData.setValue(true);
     }
 }
