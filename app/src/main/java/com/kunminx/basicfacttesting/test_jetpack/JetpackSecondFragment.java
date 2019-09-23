@@ -88,8 +88,8 @@ public class JetpackSecondFragment extends Fragment {
         // 所以找到的解决办法是，通过 hook 来在 liveData 创建时为 lastVersion 赋值
         mTestLiveDataViewModel.getLiveData().observe(this, aBoolean -> {
             if (aBoolean) {
-//                FragmentNavigator.getInstance().navigateUp();
-                Toast.makeText(getContext(), "xxx", Toast.LENGTH_SHORT).show();
+                FragmentNavigator.getInstance().navigateUp();
+//                Toast.makeText(getContext(), "xxx", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -101,9 +101,9 @@ public class JetpackSecondFragment extends Fragment {
             }
         });
 
-        if (savedInstanceState == null) {
-            mTestLiveDataViewModel.requestData();
-        }
+//        if (savedInstanceState == null) {
+//            mTestLiveDataViewModel.requestData();
+//        }
     }
 
 }
