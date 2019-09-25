@@ -116,6 +116,8 @@ public class JetpackSecondFragment extends Fragment {
         // 并且通常我们都会在回调中判空，因而使用非粘性的回调就不会造成预期外的倒灌。
         // 不过我个人不太喜欢这样的设计，因为判空本不是为 liveData 服务。如果该方式务必判空，那么就滋生了一致性问题。
         // 人总会忘记，人总会疏忽。getContentIfNotHandled() 一次再 getContentIfNotHandled() 一次，就容易自找麻烦。
+
+        // 除非，人们是用 kotlin 来编写这段代码 it.getContentIfNotHandled()?.let {...}
         mCallbackViewModel.closeEvent.observe(this, booleanEvent -> {
             if (booleanEvent.getContentIfNotHandled() != null) {
                 if (booleanEvent.peekContent()) {
