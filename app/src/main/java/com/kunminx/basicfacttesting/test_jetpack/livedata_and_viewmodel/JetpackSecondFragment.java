@@ -1,4 +1,4 @@
-package com.kunminx.basicfacttesting.test_jetpack;
+package com.kunminx.basicfacttesting.test_jetpack.livedata_and_viewmodel;
 /*
  * Copyright (c) 2018-2019. KunMinX
  *
@@ -28,6 +28,10 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.kunminx.basicfacttesting.R;
 import com.kunminx.basicfacttesting.databinding.FragmentJetpackSecondBinding;
+import com.kunminx.basicfacttesting.test_jetpack.DatabindingLiveDataFragment;
+import com.kunminx.basicfacttesting.test_jetpack.DatabindingObservaleFieldFragment;
+import com.kunminx.basicfacttesting.test_jetpack.DatabindingObservaleFragment;
+import com.kunminx.basicfacttesting.test_jetpack.FragmentNavigator;
 
 /**
  * Create by KunMinX at 19/6/27
@@ -36,13 +40,13 @@ public class JetpackSecondFragment extends Fragment {
 
     private FragmentJetpackSecondBinding mBinding;
     private TestLiveDataViewModel mTestLiveDataViewModel;
-    private BusViewModel mBusViewModel;
+    private CallbackViewModel mCallbackViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTestLiveDataViewModel = ViewModelProviders.of(getActivity()).get(TestLiveDataViewModel.class);
-        mBusViewModel = ViewModelProviders.of(getActivity()).get(BusViewModel.class);
+        mCallbackViewModel = ViewModelProviders.of(getActivity()).get(CallbackViewModel.class);
     }
 
     @Nullable
@@ -81,8 +85,12 @@ public class JetpackSecondFragment extends Fragment {
 
         // 正常情况下，应该是从别的页面发起了回调的请求，然后本页面观察到并处理
         // 这里为了直观，而把 request 方法用在了本页面
-        mBinding.btnExpLivedata.setOnClickListener(v -> {
-            mBusViewModel.requestExpectData();
+        mBinding.btnBusLivedata.setOnClickListener(v -> {
+            mCallbackViewModel.requestExpectDataByBus();
+        });
+
+        mBinding.btnEventLivedata.setOnClickListener(v -> {
+            mCallbackViewModel.requestExpectDataByEvent();
         });
 
         // LiveData 的一个 bug，当使用共享 ViewModel 时，下次进入该页面，会倒灌旧数据。
@@ -98,15 +106,24 @@ public class JetpackSecondFragment extends Fragment {
 
         // 感谢这位仁兄提供的解决方案：
         // https://blog.csdn.net/geyuecang/article/details/89028283
-        mBusViewModel.closeCallback.observe(this, aBoolean -> {
+        mCallbackViewModel.closeCallback.observe(this, aBoolean -> {
             if (aBoolean) {
                 FragmentNavigator.getInstance().navigateUp();
             }
         });
 
-//        if (savedInstanceState == null) {
-//            mTestLiveDataViewModel.requestData();
-//        }
+        // 事件包装器这种设计，相比上一个方案的特点在于，它可以让开发者自己选择此处要用哪种回调，
+        // 并且通常我们都会在回调中判空，因而使用非粘性的回调就不会造成预期外的倒灌。
+        // 不过我个人不太喜欢这样的设计，因为判空本不是为 liveData 服务。如果该方式务必判空，那么就滋生了一致性问题。
+        // 人总会忘记，人总会疏忽。getContentIfNotHandled() 一次再 getContentIfNotHandled() 一次，就容易自找麻烦。
+        mCallbackViewModel.closeEvent.observe(this, booleanEvent -> {
+            if (booleanEvent.getContentIfNotHandled() != null) {
+                if (booleanEvent.peekContent()) {
+                    FragmentNavigator.getInstance().navigateUp();
+                }
+            }
+        });
+
     }
 
 }

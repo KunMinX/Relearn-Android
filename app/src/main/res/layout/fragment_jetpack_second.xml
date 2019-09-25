@@ -66,13 +66,22 @@
             android:text="向后台发送一个请求" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_exp_livedata"
+            android:id="@+id/btn_bus_livedata"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="向后台发送一个请求(符合预期的结果)" />
+            android:text="向后台发送一个请求(Bus LiveData)" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_event_livedata"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:text="向后台发送一个请求(Event LiveData)" />
 
     </LinearLayout>
 </layout>

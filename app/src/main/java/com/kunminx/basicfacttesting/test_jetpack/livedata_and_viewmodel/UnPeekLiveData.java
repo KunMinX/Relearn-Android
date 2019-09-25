@@ -1,4 +1,4 @@
-package com.kunminx.basicfacttesting.test_jetpack;
+package com.kunminx.basicfacttesting.test_jetpack.livedata_and_viewmodel;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
@@ -11,21 +11,21 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * 仅分发 owner observe 后新拿到的数据
+ * 非粘性 LiveData，仅分发 owner observe 后新拿到的数据
  * <p>
  * Create by KunMinX at 19/9/23
  */
-public class BusLiveData<T> extends MutableLiveData<T> {
+public class UnPeekLiveData<T> extends MutableLiveData<T> {
 
     @Override
     public void observe(@NonNull LifecycleOwner owner, @NonNull Observer<? super T> observer) {
 
         // 有网友提出，为什么不直接在 super.observe 前 setValue(null)，而非要反射的方式去修改 lastVersion 呢？
         // 问得好。
-        // 因为 Bus-LiveData 是为了跨页面通信而存在的，它可能已被多个页面 observe，
+        // 因为 UnPeek-LiveData 是为了跨页面通信而存在的，它可能已被多个页面 observe，
         // 那么在新页面 observe 前 setValue(null) 一次，容易造成 其他已观察页面 遭受容易被疏忽的 被迫推送，而产生不可预期的错误。
 
-        // 同时你会发现，我并不采用美团的纯粹 LiveDataBus，而是将 Bus-LiveData 作为普通的 LiveData 托管给独立的 BusViewModel。
+        // 同时你会发现，我并不采用美团的纯粹 LiveDataBus，而是将 UnPeek-LiveData 作为普通的 LiveData 托管给独立的 CallbackViewModel。
         // 这么做是为了遵循 唯一可信源分发状态 的编程理念，以避免难以追溯、难以排查、不可预期的问题。
 
         super.observe(owner, observer);

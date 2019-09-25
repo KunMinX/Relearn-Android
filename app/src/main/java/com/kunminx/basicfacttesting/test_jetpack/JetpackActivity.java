@@ -19,6 +19,7 @@ package com.kunminx.basicfacttesting.test_jetpack;
 import android.os.Bundle;
 
 import com.kunminx.basicfacttesting.R;
+import com.kunminx.basicfacttesting.test_jetpack.lifecycler.JetpackFirstFragment;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
