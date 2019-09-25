@@ -8,7 +8,7 @@ import com.kunminx.basicfacttesting.test_jetpack.DataRepository;
 /**
  * Create by KunMinX at 19/9/24
  */
-public class CallbackViewModel extends ViewModel {
+public class SharedViewModel extends ViewModel {
 
     public final UnPeekLiveData<Boolean> closeCallback = new UnPeekLiveData<>();
 

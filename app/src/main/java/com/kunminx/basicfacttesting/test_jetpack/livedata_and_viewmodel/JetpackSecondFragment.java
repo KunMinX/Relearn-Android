@@ -40,13 +40,13 @@ public class JetpackSecondFragment extends Fragment {
 
     private FragmentJetpackSecondBinding mBinding;
     private TestLiveDataViewModel mTestLiveDataViewModel;
-    private CallbackViewModel mCallbackViewModel;
+    private SharedViewModel mSharedViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTestLiveDataViewModel = ViewModelProviders.of(getActivity()).get(TestLiveDataViewModel.class);
-        mCallbackViewModel = ViewModelProviders.of(getActivity()).get(CallbackViewModel.class);
+        mSharedViewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
     }
 
     @Nullable
@@ -86,11 +86,11 @@ public class JetpackSecondFragment extends Fragment {
         // 正常情况下，应该是从别的页面发起了回调的请求，然后本页面观察到并处理
         // 这里为了直观，而把 request 方法用在了本页面
         mBinding.btnBusLivedata.setOnClickListener(v -> {
-            mCallbackViewModel.requestExpectDataByBus();
+            mSharedViewModel.requestExpectDataByBus();
         });
 
         mBinding.btnEventLivedata.setOnClickListener(v -> {
-            mCallbackViewModel.requestExpectDataByEvent();
+            mSharedViewModel.requestExpectDataByEvent();
         });
 
         // LiveData 的一个 bug，当使用共享 ViewModel 时，下次进入该页面，会倒灌旧数据。
@@ -106,7 +106,7 @@ public class JetpackSecondFragment extends Fragment {
 
         // 感谢这位仁兄提供的解决方案：
         // https://blog.csdn.net/geyuecang/article/details/89028283
-        mCallbackViewModel.closeCallback.observe(this, aBoolean -> {
+        mSharedViewModel.closeCallback.observe(this, aBoolean -> {
             if (aBoolean) {
                 FragmentNavigator.getInstance().navigateUp();
             }
@@ -118,7 +118,7 @@ public class JetpackSecondFragment extends Fragment {
         // 人总会忘记，人总会疏忽。getContentIfNotHandled() 一次再 getContentIfNotHandled() 一次，就容易自找麻烦。
 
         // 除非，人们是用 kotlin 来编写这段代码 it.getContentIfNotHandled()?.let {...}
-        mCallbackViewModel.closeEvent.observe(this, booleanEvent -> {
+        mSharedViewModel.closeEvent.observe(this, booleanEvent -> {
             if (booleanEvent.getContentIfNotHandled() != null) {
                 if (booleanEvent.peekContent()) {
                     FragmentNavigator.getInstance().navigateUp();

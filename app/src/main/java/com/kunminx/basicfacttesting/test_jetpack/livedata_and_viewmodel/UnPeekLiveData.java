@@ -25,7 +25,7 @@ public class UnPeekLiveData<T> extends MutableLiveData<T> {
         // 因为 UnPeek-LiveData 是为了跨页面通信而存在的，它可能已被多个页面 observe，
         // 那么在新页面 observe 前 setValue(null) 一次，容易造成 其他已观察页面 遭受容易被疏忽的 被迫推送，而产生不可预期的错误。
 
-        // 同时你会发现，我并不采用美团的纯粹 LiveDataBus，而是将 UnPeek-LiveData 作为普通的 LiveData 托管给独立的 CallbackViewModel。
+        // 同时你会发现，我并不采用美团的纯粹 LiveDataBus，而是将 UnPeek-LiveData 作为普通的 LiveData 托管给独立的 SharedViewModel。
         // 这么做是为了遵循 唯一可信源分发状态 的编程理念，以避免难以追溯、难以排查、不可预期的问题。
 
         super.observe(owner, observer);
