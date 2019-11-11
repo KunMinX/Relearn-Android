@@ -3,7 +3,7 @@ package com.kunminx.basicfacttesting.touch_dispatch_test;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +25,8 @@ public class TestDispatchActivity extends AppCompatActivity {
 
     private TestInterceptViewGroup mVg;
     private TestInterceptViewGroup1 mVg1;
-    private TestView mTestView;
-
+    private TestedView mTestedView;
+    private TextView mTvInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,69 +35,46 @@ public class TestDispatchActivity extends AppCompatActivity {
 
         mVg = (TestInterceptViewGroup) findViewById(R.id.touch_vg);
         mVg1 = (TestInterceptViewGroup1) findViewById(R.id.touch_vg_1);
-        mTestView = (TestView) findViewById(R.id.test_view);
+        mTestedView = (TestedView) findViewById(R.id.test_view);
+        mTvInfo = (TextView) findViewById(R.id.tv_info);
 
 //        mVg.setEnabled(true);
 //        mVg.setClickable(true);
 
-        mVg.setOnTouchListener(new View.OnTouchListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                boolean result = false;
+        mVg.setOnTouchListener((v, event) -> {
+            boolean result = false;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 mLogger.d(NAME + "-------ViewGroup onTouch is " + result
                         + " " + MotionEvent.actionToString(event.getAction()));
-
-                return result;
             }
+
+            return result;
         });
 
-        mVg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mLogger.d(NAME + "-------ViewGroup onClick is going");
+        mVg.setOnClickListener(v -> mLogger.d(NAME + "-------ViewGroup onClick is going"));
 
-            }
-        });
-
-        mVg1.setOnTouchListener(new View.OnTouchListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                boolean result = false;
+        mVg1.setOnTouchListener((v, event) -> {
+            boolean result = false;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 mLogger.d(NAME + "-------ViewGroup1 onTouch is " + result
                         + " " + MotionEvent.actionToString(event.getAction()));
-                return result;
             }
+            return result;
         });
 
-        mVg1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mLogger.d(NAME + "-------ViewGroup1 onClick is going");
+        mVg1.setOnClickListener(v -> mLogger.d(NAME + "-------ViewGroup1 onClick is going"));
 
-            }
-        });
-
-        mTestView.setOnTouchListener(new View.OnTouchListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                boolean result = false;
+        mTestedView.setOnTouchListener((v, event) -> {
+            boolean result = false;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 mLogger.d(NAME + "-------TestView onTouch is " + result
                         + " " + MotionEvent.actionToString(event.getAction()));
-
-                return result;
             }
+
+            return result;
         });
 
-        mTestView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mLogger.d(NAME + "-------TestView onClick is going");
-
-            }
-        });
+        mTestedView.setOnClickListener(v -> mLogger.d(NAME + "-------TestView onClick is going"));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -110,6 +87,8 @@ public class TestDispatchActivity extends AppCompatActivity {
 
         mLogger.d(NAME + "-------Activity dispatchTouchEvent is " + result
                 + " " + MotionEvent.actionToString(ev.getAction()));
+
+        mTvInfo.setText("RawX: " + ev.getRawX() + "\nRawY: " + ev.getRawY());
 
         return result;
     }

@@ -19,24 +19,24 @@ import com.kunminx.utils.Logger;
 /**
  * Create by KunMinX at 2018/10/18
  */
-public class TestView extends View {
+public class TestedView extends View {
 
     private static final String TAG = "info";
-    private static final String NAME = TestView.class.getSimpleName();
+    private static final String NAME = TestedView.class.getSimpleName();
 
     private Logger mLogger = new Logger(TAG, false);
 
-    public TestView(Context context) {
+    public TestedView(Context context) {
         super(context);
         mLogger.d(NAME + "----TestView(context)");
     }
 
-    public TestView(Context context, @Nullable AttributeSet attrs) {
+    public TestedView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mLogger.d(NAME + "----TestView(context,attrs)");
     }
 
-    public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TestedView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mLogger.d(NAME + "----TestView(context,attrs,defStyleAttr)");
     }
