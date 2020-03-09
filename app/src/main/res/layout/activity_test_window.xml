@@ -28,10 +28,19 @@
         android:id="@+id/tv_move"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@color/colorAccent"
         android:padding="16dp"
         android:text="带我走"
         android:textColor="@color/white" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="800dp"
+        android:background="@color/colorPurple"
+        android:gravity="center"
+        android:text="我很长"
+        android:textSize="20sp" />
 
+</LinearLayout>

@@ -1,6 +1,7 @@
 package com.kunminx.basicfacttesting.window_test;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +21,7 @@ public class TestWindowActivity extends AppCompatActivity {
     private static final String TAG = "---TestWindowActivity";
 
     private MoveView mTvMove;
+    private TextView mTvLong;
     private View mView;
 
     private int mLastX;
@@ -32,6 +34,7 @@ public class TestWindowActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test_window);
 
         mTvMove = findViewById(R.id.tv_move);
+        mTvLong = findViewById(R.id.tv_1);
     }
 
 
@@ -75,8 +78,30 @@ public class TestWindowActivity extends AppCompatActivity {
     }
 
     public void hideFloatWindow(View view) {
-        getWindowManager().removeView(mView);
+        if (mView != null) {
+            getWindowManager().removeView(mView);
+        }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        Log.d("TAG", "mLeft:" + mTvLong.getLeft() + " mRight:" + mTvLong.getRight()
+                + " mTop:" + mTvLong.getTop() + " mBottom:" + mTvLong.getBottom()
+                + " width:" + mTvLong.getWidth() + " height:" + mTvLong.getHeight()
+                + " measureWidth:" + mTvLong.getMeasuredWidth() + " measureHeight:" + mTvLong.getMeasuredHeight());
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        Log.d("TAG", "mLeft:" + mTvLong.getLeft() + " mRight:" + mTvLong.getRight()
+                + " mTop:" + mTvLong.getTop() + " mBottom:" + mTvLong.getBottom()
+                + " width:" + mTvLong.getWidth() + " height:" + mTvLong.getHeight()
+                + " measureWidth:" + mTvLong.getMeasuredWidth() + " measureHeight:" + mTvLong.getMeasuredHeight());
+
+    }
 }
