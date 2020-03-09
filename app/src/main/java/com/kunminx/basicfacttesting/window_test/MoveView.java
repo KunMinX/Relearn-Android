@@ -2,7 +2,6 @@ package com.kunminx.basicfacttesting.window_test;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 
 import androidx.annotation.Nullable;
@@ -38,10 +37,6 @@ public class MoveView extends androidx.appcompat.widget.AppCompatTextView {
                 setX(getX() + disX);
                 setY(getY() + disY);
                 invalidate();
-//                Log.d("TAG", String.valueOf(mLastX));
-//                Log.d("TAG", String.valueOf(mLastY));
-//                Log.d("TAG", String.valueOf(curX));
-//                Log.d("TAG", String.valueOf(curY));
 
                 mLastX = curX;
                 mLastY = curY;
