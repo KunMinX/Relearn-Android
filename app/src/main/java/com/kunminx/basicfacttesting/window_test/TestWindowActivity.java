@@ -3,6 +3,7 @@ package com.kunminx.basicfacttesting.window_test;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,11 +19,14 @@ public class TestWindowActivity extends AppCompatActivity {
 
     private FloatWindow mFloatWindow;
 
+    private MoveView mTvMove;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_window);
 
+        mTvMove = findViewById(R.id.tv_move);
     }
 
 
