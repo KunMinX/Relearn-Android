@@ -14,6 +14,7 @@ import com.kunminx.basicfacttesting.test_animator.AnimatorListActivity;
 import com.kunminx.basicfacttesting.test_jetpack.JetpackActivity;
 import com.kunminx.basicfacttesting.test_service.TestServiceActivity;
 import com.kunminx.basicfacttesting.touch_dispatch_test.TestDispatchActivity;
+import com.kunminx.basicfacttesting.touch_nested_scroll_test.TestNestedScrollActivity;
 import com.kunminx.basicfacttesting.window_test.TestWindowActivity;
 
 public class TestMainActivity extends AppCompatActivity {
@@ -34,6 +35,10 @@ public class TestMainActivity extends AppCompatActivity {
 
     public void testDispatch(View view) {
         startActivity(new Intent(this, TestDispatchActivity.class));
+    }
+
+    public void testScroll(View view) {
+        startActivity(new Intent(this, TestNestedScrollActivity.class));
     }
 
     public void testWindow(View view) {

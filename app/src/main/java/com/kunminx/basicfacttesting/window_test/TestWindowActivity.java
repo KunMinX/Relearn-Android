@@ -44,13 +44,13 @@ public class TestWindowActivity extends AppCompatActivity {
         mView.setOnTouchListener((v, event) -> {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    mLastX = (int) (event.getRawX());
-                    mLastY = (int) (event.getRawY());
+                    mLastX = (int) (event.getRawX() + 0.5f);
+                    mLastY = (int) (event.getRawY() + 0.5f);
 
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    int curX = (int) (event.getRawX());
-                    int curY = (int) (event.getRawY());
+                    int curX = (int) (event.getRawX() + 0.5f);
+                    int curY = (int) (event.getRawY() + 0.5f);
                     int disX = curX - mLastX;
                     int disY = curY - mLastY;
 

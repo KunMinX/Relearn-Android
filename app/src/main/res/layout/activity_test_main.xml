@@ -45,6 +45,16 @@
                 android:text="@string/test_event_dispatch" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_test_scroll"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:onClick="testScroll"
+                android:text="@string/test_nested_scroll" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_test_window"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"

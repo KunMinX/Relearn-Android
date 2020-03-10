@@ -75,6 +75,7 @@
         <activity android:name=".test_service.TestServiceActivity" />
 
         <activity android:name=".test_jetpack.JetpackActivity" />
+        <activity android:name=".touch_nested_scroll_test.TestNestedScrollActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
