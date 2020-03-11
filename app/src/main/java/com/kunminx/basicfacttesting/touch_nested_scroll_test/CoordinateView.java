@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -25,6 +25,8 @@ public class CoordinateView extends View {
     private RectF mRectF = new RectF();
     private int mTextSize = SizeUtils.sp2px(16);
     private int mRadius = SizeUtils.sp2px(12);
+    private int mDownX;
+    private int mDownY;
 
     public CoordinateView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -48,5 +50,64 @@ public class CoordinateView extends View {
         canvas.drawRoundRect(mRectF, mRadius, mRadius, mPaint1);
 
         Log.d("TAG", getLeft() + " " + getRight() + " " + getTop() + " " + getBottom());
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) (event.getRawX() + 0.5f);
+        int y = (int) (event.getRawY() + 0.5f);
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mDownX = x;
+                mDownY = y;
+                return true;
+            case MotionEvent.ACTION_MOVE:
+                int dx = x - mDownX;
+                int dy = y - mDownY;
+                if (Math.abs(dx) > 8 || Math.abs(dy) > 8) {
+                    int orientation = getOrientation(dx, dy);
+                    switch (orientation) {
+                        case 'r':
+
+
+                            return true;
+                        case 'l':
+                            return true;
+                        case 't':
+                            return false;
+                        case 'b':
+                            return false;
+                    }
+                }
+
+                break;
+            case MotionEvent.ACTION_UP:
+                /*float dx = x - mDownX;
+                float dy = y - mDownY;
+                if (Math.abs(dx) > 8 && Math.abs(dy) > 8) {
+                    int orientation = getOrientation(dx, dy);
+                    switch (orientation) {
+                        case 'r':
+                            return true;
+                        case 'l':
+                            return true;
+                        case 't':
+                            return false;
+                        case 'b':
+                            return false;
+                    }
+                }*/
+                break;
+        }
+
+        return false;
+    }
+
+    private int getOrientation(int dx, int dy) {
+        if (Math.abs(dx) > Math.abs(dy)) {
+            return dx > 0 ? 'r' : 'l';
+        } else {
+            return dy > 0 ? 'b' : 't';
+        }
     }
 }
