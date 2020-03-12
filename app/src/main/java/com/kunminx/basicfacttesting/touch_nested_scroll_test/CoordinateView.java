@@ -27,6 +27,7 @@ public class CoordinateView extends View {
     private int mRadius = SizeUtils.sp2px(12);
     private int mDownX;
     private int mDownY;
+    private int mTransX;
 
     public CoordinateView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -54,49 +55,42 @@ public class CoordinateView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
         int x = (int) (event.getRawX() + 0.5f);
         int y = (int) (event.getRawY() + 0.5f);
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mDownX = x;
                 mDownY = y;
+                Log.d("TAG_CDV_OI_DOWN", "mDownX:" + mDownX + " mDownY:" + mDownY);
+//                getParent().requestDisallowInterceptTouchEvent(true);
                 return true;
             case MotionEvent.ACTION_MOVE:
                 int dx = x - mDownX;
                 int dy = y - mDownY;
-                if (Math.abs(dx) > 8 || Math.abs(dy) > 8) {
-                    int orientation = getOrientation(dx, dy);
-                    switch (orientation) {
-                        case 'r':
+                int orientation = getOrientation(dx, dy);
+                Log.d("TAG_CDV_OI_MOVE", "x:" + x + " y:" + y + " ori:" + orientation);
 
+                mTransX = mTransX + dx;
 
-                            return true;
-                        case 'l':
-                            return true;
-                        case 't':
-                            return false;
-                        case 'b':
-                            return false;
-                    }
+                boolean consume = false;
+                switch (orientation) {
+                    case 'r':
+                    case 'l':
+//                        getParent().requestDisallowInterceptTouchEvent(true);
+                        setTranslationX(mTransX);
+                        consume = true;
+                    case 't':
+                    case 'b':
+//                        getParent().requestDisallowInterceptTouchEvent(false);
+                        consume = false;
                 }
-
-                break;
+                mDownX = x;
+                mDownY = y;
+                return consume;
             case MotionEvent.ACTION_UP:
-                /*float dx = x - mDownX;
-                float dy = y - mDownY;
-                if (Math.abs(dx) > 8 && Math.abs(dy) > 8) {
-                    int orientation = getOrientation(dx, dy);
-                    switch (orientation) {
-                        case 'r':
-                            return true;
-                        case 'l':
-                            return true;
-                        case 't':
-                            return false;
-                        case 'b':
-                            return false;
-                    }
-                }*/
+
                 break;
         }
 

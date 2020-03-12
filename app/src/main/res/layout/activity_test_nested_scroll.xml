@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.kunminx.basicfacttesting.touch_nested_scroll_test.ScrollLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -40,4 +40,4 @@
         android:layout_height="300dp"
         android:layout_margin="12dp" />
 
-</LinearLayout>
+</com.kunminx.basicfacttesting.touch_nested_scroll_test.ScrollLinearLayout>
