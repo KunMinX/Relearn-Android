@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.kunminx.basicfacttesting.R;
 
 /**
- * @author xmj
+ * @author KunMinX
  * @date 2020/3/10
  */
 public class TestNestedScrollActivity extends AppCompatActivity {

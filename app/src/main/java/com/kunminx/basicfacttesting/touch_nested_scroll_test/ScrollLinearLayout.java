@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 
 /**
- * @author xmj
+ * @author KunMinX
  * @date 2020/3/12
  */
 public class ScrollLinearLayout extends LinearLayout {
@@ -32,26 +32,7 @@ public class ScrollLinearLayout extends LinearLayout {
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                mLastScrollY = (int) (event.getRawY() + 0.5f);
-                Log.d("TAG_SLL_OTE_DOWN", "mLastY:" + mLastScrollY);
-                return true;
-            case MotionEvent.ACTION_MOVE:
-                int curY = (int) (event.getRawY() + 0.5f);
-                int disY = curY - mLastScrollY;
-                Log.d("TAG_SLL_OTE_MOVE", " curY:" + curY + " disY:" + disY);
-                scrollBy(getScrollX(), -disY);
-                mLastScrollY = curY;
-                break;
-        }
-        return super.onTouchEvent(event);
-    }
-
-    @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        if (true)return false;
         int x = (int) (event.getRawX() + 0.5f);
         int y = (int) (event.getRawY() + 0.5f);
         switch (event.getAction()) {
@@ -88,5 +69,23 @@ public class ScrollLinearLayout extends LinearLayout {
         } else {
             return dy > 0 ? 'b' : 't';
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mLastScrollY = (int) (event.getRawY() + 0.5f);
+//                Log.d("TAG_SLL_OTE_DOWN", "mLastY:" + mLastScrollY);
+                return true;
+            case MotionEvent.ACTION_MOVE:
+                int curY = (int) (event.getRawY() + 0.5f);
+                int disY = curY - mLastScrollY;
+//                Log.d("TAG_SLL_OTE_MOVE", " curY:" + curY + " disY:" + disY);
+                scrollBy(getScrollX(), -disY);
+                mLastScrollY = curY;
+                return true;
+        }
+        return super.onTouchEvent(event);
     }
 }

@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.kunminx.utils.SizeUtils;
 
 /**
- * @author xmj
+ * @author KunMinX
  * @date 2020/3/10
  */
 public class CoordinateView extends View {
@@ -64,7 +64,7 @@ public class CoordinateView extends View {
                 mDownX = x;
                 mDownY = y;
                 Log.d("TAG_CDV_OI_DOWN", "mDownX:" + mDownX + " mDownY:" + mDownY);
-//                getParent().requestDisallowInterceptTouchEvent(true);
+                getParent().requestDisallowInterceptTouchEvent(true);
                 return true;
             case MotionEvent.ACTION_MOVE:
                 int dx = x - mDownX;
@@ -78,12 +78,12 @@ public class CoordinateView extends View {
                 switch (orientation) {
                     case 'r':
                     case 'l':
-//                        getParent().requestDisallowInterceptTouchEvent(true);
+                        getParent().requestDisallowInterceptTouchEvent(true);
                         setTranslationX(mTransX);
                         consume = true;
                     case 't':
                     case 'b':
-//                        getParent().requestDisallowInterceptTouchEvent(false);
+                        getParent().requestDisallowInterceptTouchEvent(false);
                         consume = false;
                 }
                 mDownX = x;

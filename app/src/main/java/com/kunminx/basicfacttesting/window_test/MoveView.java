@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 
 /**
- * @author xmj
+ * @author KunMinX
  * @date 2020/3/9
  */
 public class MoveView extends androidx.appcompat.widget.AppCompatTextView {
