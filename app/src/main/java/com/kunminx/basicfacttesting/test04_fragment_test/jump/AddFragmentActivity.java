@@ -40,12 +40,7 @@ public class AddFragmentActivity extends AppCompatActivity {
 
     private void loadFirstFragment() {
         OneTestFragment fragment = new OneTestFragment();
-        fragment.setListener(new OneTestFragment.OneTestListener() {
-            @Override
-            public void loadTwoTest() {
-                loadSecondFragment();
-            }
-        });
+        fragment.setListener(() -> loadSecondFragment());
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, fragment,
@@ -56,15 +51,10 @@ public class AddFragmentActivity extends AppCompatActivity {
 
     private void loadSecondFragment() {
         TwoTestFragment fragment = new TwoTestFragment();
-        fragment.setListener(new TwoTestFragment.TwoTestListener() {
-            @Override
-            public void loadTwoTest() {
-                loadThirdFragment();
-            }
-        });
+        fragment.setListener(() -> loadThirdFragment());
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment,
+                .replace(R.id.fragment_container, fragment,
                         TwoTestFragment.class.getSimpleName())
                 .addToBackStack(null)
                 .commit();

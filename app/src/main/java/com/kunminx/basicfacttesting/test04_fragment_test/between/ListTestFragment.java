@@ -58,7 +58,7 @@ public class ListTestFragment extends BaseFragment {
                 }
             }
         });
-        mAdapter.refreshList(getTestData());
+        mAdapter.setList(getTestData());
     }
 
     private List<News> getTestData() {

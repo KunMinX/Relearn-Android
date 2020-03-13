@@ -22,7 +22,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     private OnItemClickListener mListener;
     private List<News> mNews = new ArrayList<>();
 
-    public void refreshList(List<News> news) {
+    public void setList(List<News> news) {
         if (news != null) {
             mNews.clear();
             mNews.addAll(news);
