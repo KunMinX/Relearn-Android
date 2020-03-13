@@ -62,6 +62,7 @@ public class OneTestFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        //验证 replace 流程
         Log.d("TAG", "onCreateView");
         return view;
     }
@@ -88,6 +89,18 @@ public class OneTestFragment extends BaseFragment {
         mRv.setAdapter(mAdapter = new NewsAdapter());
         mAdapter.setList(getTestData());
         mAdapter.notifyDataSetChanged();
+
+        //TODO 2020 年起，fragment 就算 replace，返回后仍然能恢复之前的状态，
+        //
+        //虽说 fragment 存在的初衷 是为了更加轻量、快速，而做了 创建和销毁视图。
+        //然而目前 google 的意图是，让 Activity 和 fragment 的 api 和行为更加趋同，
+        //所以未来会将许多功能抽取出来，单独维护、分别为 Activity 和 fragment 共享
+        //所以如果 Activity 跳转返回后，状态还在,
+        //那么为了降低复杂性，fragment 也打算走类似的路线（即使页面跳转时视图被销毁，也要让页面回退时状态被恢复），
+
+        //TODO 如果这样说还不理解的话，可详见《重学安卓》重建机制 和 fragment 篇
+        //https://xiaozhuanlan.com/topic/7692814530
+        //https://xiaozhuanlan.com/topic/0937256481
 
         mTextView = view.findViewById(R.id.tv_text);
         mEditText = view.findViewById(R.id.et_text);
@@ -128,6 +141,7 @@ public class OneTestFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        //验证 replace 流程
         Log.d("TAG", "onDestroyView");
     }
 }

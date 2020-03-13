@@ -43,9 +43,8 @@ public class AddFragmentActivity extends AppCompatActivity {
         fragment.setListener(() -> loadSecondFragment());
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment,
+                .replace(R.id.fragment_container, fragment,
                         OneTestFragment.class.getSimpleName())
-                .addToBackStack(null)
                 .commit();
     }
 
