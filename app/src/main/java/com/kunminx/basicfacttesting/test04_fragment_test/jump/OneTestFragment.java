@@ -46,12 +46,13 @@ import java.util.List;
 public class OneTestFragment extends BaseFragment {
 
     private TextView mTvTitle;
-    private MaterialButton mJump, mBack;
+    private MaterialButton mJump, mBack, mTest;
     private RecyclerView mRv;
-    private TextView mTextView;
+    private TextView mTextView, mTvTest;
     private EditText mEditText;
     private NewsAdapter mAdapter;
     private OneTestListener mListener;
+    private String mTestString;
 
     @Override
     protected int getLayout() {
@@ -73,6 +74,7 @@ public class OneTestFragment extends BaseFragment {
         mTvTitle = view.findViewById(R.id.tv_tag);
         mJump = view.findViewById(R.id.btn_jump);
         mBack = view.findViewById(R.id.btn_back);
+        mTest = view.findViewById(R.id.btn_show_test_string);
 
         mTvTitle.setText(OneTestFragment.class.getSimpleName());
         mJump.setText(getString(R.string.jump_to_fragment_two));
@@ -103,6 +105,7 @@ public class OneTestFragment extends BaseFragment {
         //https://xiaozhuanlan.com/topic/0937256481
 
         mTextView = view.findViewById(R.id.tv_text);
+        mTvTest = view.findViewById(R.id.tv_test);
         mEditText = view.findViewById(R.id.et_text);
         mEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -113,12 +116,19 @@ public class OneTestFragment extends BaseFragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mTextView.setText(mEditText.getText().toString());
+                if (mTestString != null) {
+                    mTestString = mEditText.getText().toString() + " replace 转场，未 saveInstance，但存活";
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
             }
+        });
+
+        mTest.setOnClickListener(v -> {
+            mTvTest.setText(mTestString);
         });
     }
 

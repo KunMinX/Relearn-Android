@@ -33,6 +33,15 @@
         android:layout_marginRight="12dp"
         android:text="关闭此fragment" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_show_test_string"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:text="查看转场返回时 fragment 成员存活情况" />
+
     <EditText
         android:id="@+id/et_text"
         android:layout_width="match_parent"
@@ -44,6 +53,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="同步接收输入的文字" />
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
