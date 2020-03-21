@@ -46,7 +46,7 @@ import java.util.List;
 public class OneTestFragment extends BaseFragment {
 
     private TextView mTvTitle;
-    private MaterialButton mJump, mBack, mTest;
+    private MaterialButton mJump, mBack, mTest, mCopy;
     private RecyclerView mRv;
     private TextView mTextView, mTvTest;
     private EditText mEditText;
@@ -75,6 +75,7 @@ public class OneTestFragment extends BaseFragment {
         mJump = view.findViewById(R.id.btn_jump);
         mBack = view.findViewById(R.id.btn_back);
         mTest = view.findViewById(R.id.btn_show_test_string);
+        mCopy = view.findViewById(R.id.btn_copy);
 
         mTvTitle.setText(OneTestFragment.class.getSimpleName());
         mJump.setText(getString(R.string.jump_to_fragment_two));
@@ -116,9 +117,11 @@ public class OneTestFragment extends BaseFragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mTextView.setText(mEditText.getText().toString());
-                if (mTestString != null) {
+                /*if (mTestString != null) {
                     mTestString = mEditText.getText().toString() + " replace 转场，未 saveInstance，但存活";
-                }
+                } else {
+                    mTestString = mEditText.getText().toString();
+                }*/
             }
 
             @Override
@@ -129,6 +132,10 @@ public class OneTestFragment extends BaseFragment {
 
         mTest.setOnClickListener(v -> {
             mTvTest.setText(mTestString);
+        });
+
+        mCopy.setOnClickListener(v -> {
+            mTestString = mEditText.getText().toString();
         });
     }
 
