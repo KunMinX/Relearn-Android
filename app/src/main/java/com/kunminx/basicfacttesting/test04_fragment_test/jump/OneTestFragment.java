@@ -117,11 +117,6 @@ public class OneTestFragment extends BaseFragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mTextView.setText(mEditText.getText().toString());
-                /*if (mTestString != null) {
-                    mTestString = mEditText.getText().toString() + " replace 转场，未 saveInstance，但存活";
-                } else {
-                    mTestString = mEditText.getText().toString();
-                }*/
             }
 
             @Override
