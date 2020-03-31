@@ -71,7 +71,7 @@ public class BaseLifeCycleActivity extends AppCompatActivity {
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        Log.d(TAG, "onRestoreInstanceState");
+        Log.d(TAG, "onWindowFocusChanged");
         super.onWindowFocusChanged(hasFocus);
     }
 
