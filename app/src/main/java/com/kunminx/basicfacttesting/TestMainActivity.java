@@ -2,6 +2,7 @@ package com.kunminx.basicfacttesting;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,10 +25,8 @@ public class TestMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_main);
 
-//        TextView tv = (TextView) findViewById(R.id.sample_text);
-//        tv.setText(stringFromJNI());
+        Log.d("TAG", TestMainActivity.class.getSimpleName() + " -- taskId" + getTaskId());
     }
-
 
     public void testLifeCycle(View view) {
         startActivity(new Intent(this, OneActivity.class));
@@ -68,10 +67,6 @@ public class TestMainActivity extends AppCompatActivity {
     public void testJetpack(View view) {
         startActivity(new Intent(this, JetpackActivity.class));
     }
-
-   /* public void testStatus(View view) {
-        startActivity(new Intent(this, StatusActivity.class));
-    }*/
 
 
 }
