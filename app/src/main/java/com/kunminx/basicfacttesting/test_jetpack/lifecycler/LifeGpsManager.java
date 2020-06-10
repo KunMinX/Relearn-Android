@@ -8,9 +8,13 @@ import androidx.lifecycle.LifecycleOwner;
 import io.reactivex.Observable;
 
 /**
+ * TODO：Jetpack 相关内容请移步查阅 持续维护的《Jetpack MVVM 最佳实践》项目的深度解析
+ *
+ * https://github.com/KunMinX/Jetpack-MVVM-Best-Practice
+ *
  * Create by KunMinX at 19/7/7
  */
-
+@Deprecated
 public class LifeGpsManager implements DefaultLifecycleObserver {
 
     private static LifeGpsManager sLifeGpsManager = new LifeGpsManager();

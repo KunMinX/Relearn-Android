@@ -25,8 +25,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
+ * TODO：Jetpack 相关内容请移步查阅 持续维护的《Jetpack MVVM 最佳实践》项目的深度解析
+ * <p>
+ * https://github.com/KunMinX/Jetpack-MVVM-Best-Practice
+ * <p>
  * Create by KunMinX at 19/6/27
  */
+@Deprecated
 public class JetpackActivity extends AppCompatActivity {
 
     @Override

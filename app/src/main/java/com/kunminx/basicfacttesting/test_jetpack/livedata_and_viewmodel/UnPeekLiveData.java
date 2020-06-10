@@ -11,10 +11,15 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
+ * TODO：Jetpack 相关内容请移步查阅 持续维护的《Jetpack MVVM 最佳实践》项目的深度解析
+ *
+ * https://github.com/KunMinX/Jetpack-MVVM-Best-Practice
+ *
  * 非粘性 LiveData，仅分发 owner observe 后新拿到的数据
  * <p>
  * Create by KunMinX at 19/9/23
  */
+@Deprecated
 public class UnPeekLiveData<T> extends MutableLiveData<T> {
 
     @Override

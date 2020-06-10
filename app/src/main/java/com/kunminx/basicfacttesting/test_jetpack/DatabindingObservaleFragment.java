@@ -31,8 +31,13 @@ import com.kunminx.basicfacttesting.R;
 import com.kunminx.basicfacttesting.databinding.FragmentTestDatabindingObserveBinding;
 
 /**
+ * TODO：Jetpack 相关内容请移步查阅 持续维护的《Jetpack MVVM 最佳实践》项目的深度解析
+ *
+ * https://github.com/KunMinX/Jetpack-MVVM-Best-Practice
+ *
  * Create by KunMinX at 19/6/27
  */
+@Deprecated
 public class DatabindingObservaleFragment extends Fragment {
 
     private FragmentTestDatabindingObserveBinding mBinding;

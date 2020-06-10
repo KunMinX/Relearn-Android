@@ -3,8 +3,13 @@ package com.kunminx.basicfacttesting.test_jetpack.lifecycler;
 import io.reactivex.Observable;
 
 /**
+ * TODO：Jetpack 相关内容请移步查阅 持续维护的《Jetpack MVVM 最佳实践》项目的深度解析
+ * <p>
+ * https://github.com/KunMinX/Jetpack-MVVM-Best-Practice
+ * <p>
  * Create by KunMinX at 19/7/7
  */
+@Deprecated
 public class GpsManager {
 
     private static GpsManager sGpsManager = new GpsManager();

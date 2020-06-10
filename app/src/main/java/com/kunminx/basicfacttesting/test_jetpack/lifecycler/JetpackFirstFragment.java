@@ -36,8 +36,13 @@ import com.kunminx.basicfacttesting.test_jetpack.livedata_and_viewmodel.TestLive
  * 这个 fragment 用于 LifeCycler 的示例，
  * 可以直观地看到，LifeCycler 加持的 lifeGpsManager 解决了生命周期管理的一致性问题。
  * <p>
+ * TODO：Jetpack 相关内容请移步查阅 持续维护的《Jetpack MVVM 最佳实践》项目的深度解析
+ * <p>
+ * https://github.com/KunMinX/Jetpack-MVVM-Best-Practice
+ * <p>
  * Create by KunMinX at 19/6/27
  */
+@Deprecated
 public class JetpackFirstFragment extends Fragment {
 
     private FragmentJetpackFirstBinding mBinding;
