@@ -21,21 +21,11 @@ Juejin：[KunMinX 在掘金](https://juejin.im/user/58ab0de9ac502e006975d757/pos
 [![重学安卓小专栏](https://i.loli.net/2019/06/19/5d09bca4ee3c934130.png)](https://xiaozhuanlan.com/kunminx?rel=kunminx)
 
 
-# License
+&nbsp;
 
-```
-Copyright 2018-2019 KunMinX
+## 版权声明
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+本项目的场景、外观、代码设计，由作者 [KunMinX](https://github.com/KunMinX) 独立原创，作者对此享有著作权，任何个人或组织，未经作者本人授权，不得将该项目的设计用于写书、卖课等商业用途。
 
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+Copyright © 2020-present KunMinX 
 
