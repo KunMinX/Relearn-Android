@@ -18,21 +18,21 @@
         </activity>
 
         <activity
-            android:name=".StandardAActivity"
+            android:name=".StandardActivity_G"
             android:exported="true" />
 
         <activity
-            android:name=".SingleTaskAActivity"
+            android:name=".SingleTaskActivity_E"
             android:exported="true"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".SingleTaskBActivity"
+            android:name=".SingleTaskActivity_F"
             android:exported="true"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".SingleTopAActivity"
+            android:name=".SingleTopActivity_H"
             android:exported="true"
             android:launchMode="singleTop" />
 

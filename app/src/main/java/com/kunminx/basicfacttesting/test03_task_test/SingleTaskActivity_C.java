@@ -6,7 +6,7 @@ import android.os.Bundle;
 /**
  * Create by KunMinX at 2018/10/18
  */
-public class StandardOneActivity extends BaseTaskActivity {
+public class SingleTaskActivity_C extends BaseTaskActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="启动 Standard One" />
+            android:text="启动 Standard A" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_standard_two"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="启动 Standard Two" />
+            android:text="启动 Standard B" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_singletop_one"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="启动 SingleTop One" />
+            android:text="启动 SingleTop" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_clear_top"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="启动 SingleTask One" />
+            android:text="启动 SingleTask C" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_singletask_two"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="启动 SingleTask Two" />
+            android:text="启动 SingleTask D" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_singletask_a"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="App2 显式启动 App1 的 SingleTask A" />
+            android:text="App2 显式启动 App1 的 SingleTask E" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_singletask_b"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="App2 显式启动 App1 的 SingleTask B" />
+            android:text="App2 显式启动 App1 的 SingleTask F" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_standard_a"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="App2 显式启动 App1 的 Standard A" />
+            android:text="App2 显式启动 App1 的 Standard G" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_singletop_a"
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="App2 显式启动 App1 的 SingleTop A" />
+            android:text="App2 显式启动 App1 的 SingleTop H" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_clear_top_a"

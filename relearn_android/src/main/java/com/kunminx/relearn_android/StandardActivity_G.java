@@ -8,7 +8,7 @@ import com.kunminx.basicfacttesting.test03_task_test.BaseTaskActivity;
 /**
  * Create by KunMinX at 2018/10/18
  */
-public class SingleTaskAActivity extends BaseTaskActivity {
+public class StandardActivity_G extends BaseTaskActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

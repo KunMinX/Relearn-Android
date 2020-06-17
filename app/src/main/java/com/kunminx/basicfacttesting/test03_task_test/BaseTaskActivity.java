@@ -77,15 +77,15 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_standard_one) {
-            Intent intent = new Intent(this, StandardOneActivity.class);
+            Intent intent = new Intent(this, StandardActivity_A.class);
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_standard_two) {
-            Intent intent = new Intent(this, StandardTwoActivity.class);
+            Intent intent = new Intent(this, StandardActivity_B.class);
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletop_one) {
-            Intent intent = new Intent(this, SingleTopOneActivity.class);
+            Intent intent = new Intent(this, SingleTopActivity.class);
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_clear_top) {
@@ -94,11 +94,11 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletask_one) {
-            Intent intent = new Intent(this, SingleTaskOneActivity.class);
+            Intent intent = new Intent(this, SingleTaskActivity_C.class);
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletask_two) {
-            Intent intent = new Intent(this, SingleTaskTwoActivity.class);
+            Intent intent = new Intent(this, SingleTaskActivity_D.class);
             startActivityWithCheck(intent);
 
             //以下测试结果证实：

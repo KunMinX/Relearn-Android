@@ -37,24 +37,24 @@
         </activity>
 
         <activity
-            android:name=".test03_task_test.StandardOneActivity"
+            android:name=".test03_task_test.StandardActivity_A"
             android:exported="true" />
         <activity
-            android:name=".test03_task_test.StandardTwoActivity"
+            android:name=".test03_task_test.StandardActivity_B"
             android:taskAffinity="com.kunminx.task.a" />
         <activity
-            android:name=".test03_task_test.SingleTopOneActivity"
+            android:name=".test03_task_test.SingleTopActivity"
             android:launchMode="singleTop"
             android:taskAffinity="com.kunminx.task.b" />
         <activity
             android:name=".test03_task_test.ClearTopActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".test03_task_test.SingleTaskOneActivity"
+            android:name=".test03_task_test.SingleTaskActivity_C"
             android:launchMode="singleTask"
             android:taskAffinity="com.kunminx.task.c" />
         <activity
-            android:name=".test03_task_test.SingleTaskTwoActivity"
+            android:name=".test03_task_test.SingleTaskActivity_D"
             android:launchMode="singleTask"
             android:taskAffinity="com.kunminx.task.c" />
         <activity
