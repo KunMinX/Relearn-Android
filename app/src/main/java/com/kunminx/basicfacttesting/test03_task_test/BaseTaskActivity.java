@@ -36,12 +36,12 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         mBtnStandardTwo = (Button) findViewById(R.id.btn_standard_two);
         mBtnSingleTopOne = (Button) findViewById(R.id.btn_singletop_one);
         mBtnClearTop = (Button) findViewById(R.id.btn_clear_top);
-        mBtnSingleTaskOne = (Button) findViewById(R.id.btn_singletask_one);
-        mBtnSingleTaskTwo = (Button) findViewById(R.id.btn_singletask_two);
-        mBtnSingleTaskA = (Button) findViewById(R.id.btn_singletask_a);
-        mBtnSingleTaskB = (Button) findViewById(R.id.btn_singletask_b);
-        mBtnStandardA = (Button) findViewById(R.id.btn_standard_a);
-        mBtnSingleTopA = (Button) findViewById(R.id.btn_singletop_a);
+        mBtnSingleTaskOne = (Button) findViewById(R.id.btn_singletask_a);
+        mBtnSingleTaskTwo = (Button) findViewById(R.id.btn_singletask_b);
+        mBtnSingleTaskA = (Button) findViewById(R.id.btn_singletask_c);
+        mBtnSingleTaskB = (Button) findViewById(R.id.btn_singletask_d);
+        mBtnStandardA = (Button) findViewById(R.id.btn_standard_i);
+        mBtnSingleTopA = (Button) findViewById(R.id.btn_singletop_j);
         mBtnClearTopA = (Button) findViewById(R.id.btn_clear_top_a);
         mBtnSingleInstance = (Button) findViewById(R.id.btn_singleinstance);
         mBtnFlagNewTask = (Button) findViewById(R.id.btn_flag_new_task);
@@ -77,11 +77,11 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_standard_one) {
-            Intent intent = new Intent(this, StandardActivity_A.class);
+            Intent intent = new Intent(this, StandardActivity_One.class);
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_standard_two) {
-            Intent intent = new Intent(this, StandardActivity_B.class);
+            Intent intent = new Intent(this, StandardActivity_Two.class);
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singletop_one) {
@@ -93,11 +93,19 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivityWithCheck(intent);
 
-        } else if (i == R.id.btn_singletask_one) {
+        } else if (i == R.id.btn_singletask_a) {
+            Intent intent = new Intent(this, SingleTaskActivity_A.class);
+            startActivityWithCheck(intent);
+
+        } else if (i == R.id.btn_singletask_b) {
+            Intent intent = new Intent(this, SingleTaskActivity_B.class);
+            startActivityWithCheck(intent);
+
+        } else if (i == R.id.btn_singletask_c) {
             Intent intent = new Intent(this, SingleTaskActivity_C.class);
             startActivityWithCheck(intent);
 
-        } else if (i == R.id.btn_singletask_two) {
+        } else if (i == R.id.btn_singletask_d) {
             Intent intent = new Intent(this, SingleTaskActivity_D.class);
             startActivityWithCheck(intent);
 
@@ -105,35 +113,35 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
             //1.在 App2 中启动 App1 的 standard Activity，仍然遵守 standard 的特点：在启动它的 Activity 所在的任务中启动，也即跟随 App2。
             //2.在 App2 中启动 App1 的 singleTop Activity，跟随状况同 standard。
             //3.在 App2 中启动 App1 的 singleTask Activity，仍然处于 App1 的任务中，并不跟随 App2。
-        } else if (i == R.id.btn_singletask_a) {
+        } else if (i == R.id.btn_singletask_g) {
             Intent intent = new Intent();
             ComponentName name = new ComponentName(
                     "com.kunminx.relearn_android",
-                    "com.kunminx.relearn_android.SingleTaskAActivity");
+                    "com.kunminx.relearn_android.SingleTaskActivity_G");
             intent.setComponent(name);
             startActivityWithCheck(intent);
 
-        } else if (i == R.id.btn_singletask_b) {
+        } else if (i == R.id.btn_singletask_h) {
             Intent intent = new Intent();
             ComponentName name = new ComponentName(
                     "com.kunminx.relearn_android",
-                    "com.kunminx.relearn_android.SingleTaskBActivity");
+                    "com.kunminx.relearn_android.SingleTaskActivity_H");
             intent.setComponent(name);
             startActivityWithCheck(intent);
 
-        } else if (i == R.id.btn_standard_a) {
+        } else if (i == R.id.btn_standard_i) {
             Intent intent = new Intent();
             ComponentName name = new ComponentName(
                     "com.kunminx.relearn_android",
-                    "com.kunminx.relearn_android.StandardAActivity");
+                    "com.kunminx.relearn_android.StandardActivity_I");
             intent.setComponent(name);
             startActivityWithCheck(intent);
 
-        } else if (i == R.id.btn_singletop_a) {
+        } else if (i == R.id.btn_singletop_j) {
             Intent intent = new Intent();
             ComponentName name = new ComponentName(
                     "com.kunminx.relearn_android",
-                    "com.kunminx.relearn_android.SingleTopAActivity");
+                    "com.kunminx.relearn_android.SingleTopActivity_J");
             intent.setComponent(name);
             startActivityWithCheck(intent);
 
