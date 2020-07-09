@@ -70,6 +70,10 @@ public class OneActivity extends BaseLifeCycleActivity {
             }
         });
 
+        //TODO ：此处可打开旋转屏幕开关，允许旋屏，来测试。
+        // 此处的设计是用于，在 Activity 旋屏重建后，fragment 实例可通过 tag 拿到并恢复，
+        // 无需再次创建新的和添加入栈，不然栈中可能被重复加入多个同样的 fragment
+
         if (savedInstanceState != null) {
             TAG_OF_AUTO_FRAGMENT = savedInstanceState.getString(STATE_OF_AUTO_FRAGMENT);
             mAutoFragment = getSupportFragmentManager().findFragmentByTag(TAG_OF_AUTO_FRAGMENT);
