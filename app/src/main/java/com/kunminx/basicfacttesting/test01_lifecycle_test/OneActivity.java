@@ -2,14 +2,12 @@ package com.kunminx.basicfacttesting.test01_lifecycle_test;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
 
 import com.kunminx.basicfacttesting.R;
 
@@ -42,17 +40,7 @@ public class OneActivity extends BaseLifeCycleActivity {
         });
 
         mBtnJumpFrg.setOnClickListener(v -> {
-            if (TextUtils.isEmpty(TAG_OF_FRAGMENT)) {
-                mOneFragment = new OneFragment();
-                TAG_OF_FRAGMENT = OneFragment.class.getSimpleName();
-            } else {
-                mOneFragment = (OneFragment) getSupportFragmentManager()
-                        .getFragment(savedInstanceState, TAG_OF_FRAGMENT);
-            }
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.frg_container, mOneFragment, TAG_OF_FRAGMENT)
-                    .addToBackStack(null)
-                    .commitAllowingStateLoss();
+            jumpToOneFragment();
         });
         mBtnShowDlg.setOnClickListener(v -> {
             showDialog();
@@ -63,22 +51,23 @@ public class OneActivity extends BaseLifeCycleActivity {
         // 无需再次创建新的和添加入栈，不然栈中可能被重复加入多个同样的 fragment
 
         if (savedInstanceState != null) {
-            TAG_OF_AUTO_FRAGMENT = savedInstanceState.getString(STATE_OF_AUTO_FRAGMENT);
-            mAutoFragment = getSupportFragmentManager().findFragmentByTag(TAG_OF_AUTO_FRAGMENT);
-            getSupportFragmentManager().beginTransaction().show(mAutoFragment).commitAllowingStateLoss();
-
             TAG_OF_FRAGMENT = savedInstanceState.getString(STATE_OF_FRAGMENT);
             if (!TextUtils.isEmpty(TAG_OF_FRAGMENT)) {
                 mOneFragment = (OneFragment) getSupportFragmentManager().findFragmentByTag(TAG_OF_FRAGMENT);
-                getSupportFragmentManager().beginTransaction().show(mOneFragment).commitAllowingStateLoss();
+                if (mOneFragment != null) {
+                    getSupportFragmentManager().beginTransaction().show(mOneFragment).commitAllowingStateLoss();
+                }
             }
 
             TAG_OF_AUTO_FRAGMENT = savedInstanceState.getString(STATE_OF_AUTO_FRAGMENT);
             mAutoFragment = getSupportFragmentManager().findFragmentByTag(TAG_OF_AUTO_FRAGMENT);
             if (mAutoFragment != null) {
-                ((OneAutoFragment) mAutoFragment).setIOneAutoFragment(() -> {
-                    jumpToSecondFragment();
-                });
+                if (mAutoFragment instanceof OneAutoFragment) {
+                    ((OneAutoFragment) mAutoFragment).setIOneAutoFragment(() -> {
+                        jumpToSecondFragment();
+                    });
+                }
+                getSupportFragmentManager().beginTransaction().show(mAutoFragment).commitAllowingStateLoss();
             }
 
         } else if (mAutoFragment == null && TextUtils.isEmpty(TAG_OF_AUTO_FRAGMENT)) {
@@ -94,13 +83,34 @@ public class OneActivity extends BaseLifeCycleActivity {
 
     }
 
+    public void jumpToOneFragment() {
+        if (TextUtils.isEmpty(TAG_OF_FRAGMENT)) {
+            TAG_OF_FRAGMENT = OneFragment.class.getSimpleName();
+        } else {
+            mOneFragment = (OneFragment) getSupportFragmentManager().findFragmentByTag(TAG_OF_FRAGMENT);
+        }
+
+        if (mOneFragment == null) {
+            mOneFragment = new OneFragment();
+        }
+
+        if (!mOneFragment.isAdded()) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.frg_container, mOneFragment, TAG_OF_FRAGMENT)
+                    .addToBackStack(null)
+                    .commitAllowingStateLoss();
+        }
+    }
+
     public void jumpToSecondFragment() {
-        STATE_OF_AUTO_FRAGMENT = SecondFragment.class.getSimpleName();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.frg_container_1, new SecondFragment())
-                .hide(mAutoFragment)
-                .addToBackStack(null)
-                .commitAllowingStateLoss();
+        TAG_OF_AUTO_FRAGMENT = SecondFragment.class.getSimpleName();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.frg_container_1, new SecondFragment(() -> {
+            TAG_OF_AUTO_FRAGMENT = OneAutoFragment.class.getSimpleName();
+        }));
+        ft.hide(mAutoFragment);
+        ft.addToBackStack(null);
+        ft.commitAllowingStateLoss();
     }
 
     public void showDialog() {
@@ -112,12 +122,6 @@ public class OneActivity extends BaseLifeCycleActivity {
         super.onSaveInstanceState(outState);
         outState.putString(STATE_OF_AUTO_FRAGMENT, TAG_OF_AUTO_FRAGMENT);
         outState.putString(STATE_OF_FRAGMENT, TAG_OF_FRAGMENT);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
     }
 
 }

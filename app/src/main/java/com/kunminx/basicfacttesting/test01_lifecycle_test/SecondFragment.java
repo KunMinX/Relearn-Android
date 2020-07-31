@@ -22,6 +22,12 @@ public class SecondFragment extends BaseLifeCycleFragment {
     private final static String TAG_TIME = "";
     private TextView mTextView;
 
+    private Callback mCallback;
+
+    public SecondFragment(Callback callback) {
+        mCallback = callback;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,11 +38,11 @@ public class SecondFragment extends BaseLifeCycleFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btn_jump_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().popBackStack();
+        view.findViewById(R.id.btn_jump_back).setOnClickListener(v -> {
+            if (mCallback != null) {
+                mCallback.onBack();
             }
+            getActivity().getSupportFragmentManager().popBackStack();
         });
         mTextView = ((TextView) view.findViewById(R.id.tv_num));
     }
@@ -56,5 +62,9 @@ public class SecondFragment extends BaseLifeCycleFragment {
             startTime = System.currentTimeMillis();
         }
         mTextView.setText(String.valueOf(startTime));
+    }
+
+    public interface Callback {
+        void onBack();
     }
 }

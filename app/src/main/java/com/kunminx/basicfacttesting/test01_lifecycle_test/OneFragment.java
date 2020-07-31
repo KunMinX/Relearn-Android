@@ -27,15 +27,12 @@ public class OneFragment extends BaseLifeCycleFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btn_jump_frag).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction()
-                        .add(R.id.frg_container, new SecondFragment())
-                        .hide(OneFragment.this)
-                        .addToBackStack(null).commit();
-            }
-        });
+        view.findViewById(R.id.btn_jump_frag).setOnClickListener(v -> getFragmentManager().beginTransaction()
+                .add(R.id.frg_container, new SecondFragment(() -> {
+
+                }))
+                .hide(OneFragment.this)
+                .addToBackStack(null).commit());
     }
 
 }
