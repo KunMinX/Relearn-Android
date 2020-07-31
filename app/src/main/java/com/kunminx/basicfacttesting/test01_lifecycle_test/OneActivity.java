@@ -78,6 +78,7 @@ public class OneActivity extends BaseLifeCycleActivity {
             TAG_OF_AUTO_FRAGMENT = OneAutoFragment.class.getSimpleName();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.frg_container_1, mAutoFragment, TAG_OF_AUTO_FRAGMENT)
+//                    .addToBackStack(null) //此处留着测试用，可以测测看，当 autoFragment 也入栈的情况下，返回键点击的效果
                     .commitAllowingStateLoss();
         }
 
