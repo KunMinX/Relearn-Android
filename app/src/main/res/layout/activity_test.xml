@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="弹出dialog" />
+            android:text="弹出 dialog" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_jump_aty"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="跳转到secondActivity" />
+            android:text="跳转到 second Activity" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_jump_frg"
@@ -33,17 +33,21 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:text="加载oneFragment" />
+            android:text="加载 one Fragment" />
 
         <FrameLayout
             android:id="@+id/frg_container"
             android:layout_width="match_parent"
-            android:layout_height="150dp" />
+            android:layout_height="150dp"
+            android:layout_margin="12dp"
+            android:background="#ccc" />
 
         <FrameLayout
             android:id="@+id/frg_container_1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            android:background="#ccc" />
 
     </LinearLayout>
 
