@@ -40,6 +40,7 @@ public class OneActivity extends BaseLifeCycleActivity {
         mBtnJumpAty.setOnClickListener(v -> {
             startActivity(new Intent(OneActivity.this, SecondActivity.class));
         });
+
         mBtnJumpFrg.setOnClickListener(v -> {
             if (TextUtils.isEmpty(TAG_OF_FRAGMENT)) {
                 mOneFragment = new OneFragment();

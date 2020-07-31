@@ -30,25 +30,15 @@ public class OneAutoFragment extends BaseLifeCycleFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_lifecycler_one, container, false);
+        return inflater.inflate(R.layout.fragment_lifecycler_one_auto, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btn_jump_frag).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mIOneAutoFragment != null) {
-                    mIOneAutoFragment.onJumpToSecondFragment();
-                }
-
-               /* getFragmentManager().beginTransaction()
-                        .replace(R.id.frg_container_1, new SecondFragment())
-//                .add(R.id.frg_container_1, mAutoFragment = new SecondFragment())
-//                .hide(mAutoFragment)
-                        .addToBackStack(null)
-                        .commitAllowingStateLoss();*/
+        view.findViewById(R.id.btn_jump_frag).setOnClickListener(v -> {
+            if (mIOneAutoFragment != null) {
+                mIOneAutoFragment.onJumpToSecondFragment();
             }
         });
         mTextView = ((TextView) view.findViewById(R.id.tv_num));
