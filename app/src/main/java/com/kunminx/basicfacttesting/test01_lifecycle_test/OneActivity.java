@@ -26,7 +26,7 @@ public class OneActivity extends BaseLifeCycleActivity {
 
     private OneFragment mOneFragment;
     private Fragment mAutoFragment;
-    private Button mBtnJumpAty, mBtnJumpFrg, mBtnShowDlg, mBtnPage1, mBtnPage2, mBtnPage3;
+    private Button mBtnJumpAty, mBtnJumpFrg, mBtnShowDlg;
 
 
     @Override
@@ -37,37 +37,24 @@ public class OneActivity extends BaseLifeCycleActivity {
         mBtnJumpFrg = (Button) findViewById(R.id.btn_jump_frg);
         mBtnShowDlg = (Button) findViewById(R.id.btn_show_dlg);
 
-        mBtnPage1 = (Button) findViewById(R.id.btn_page1);
-        mBtnPage2 = (Button) findViewById(R.id.btn_page2);
-        mBtnPage3 = (Button) findViewById(R.id.btn_page3);
-
-        mBtnJumpAty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(OneActivity.this, SecondActivity.class));
-            }
+        mBtnJumpAty.setOnClickListener(v -> {
+            startActivity(new Intent(OneActivity.this, SecondActivity.class));
         });
-        mBtnJumpFrg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(TAG_OF_FRAGMENT)) {
-                    mOneFragment = new OneFragment();
-                    TAG_OF_FRAGMENT = OneFragment.class.getSimpleName();
-                } else {
-                    mOneFragment = (OneFragment) getSupportFragmentManager()
-                            .getFragment(savedInstanceState, TAG_OF_FRAGMENT);
-                }
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.frg_container, mOneFragment, TAG_OF_FRAGMENT)
-                        .addToBackStack(null)
-                        .commitAllowingStateLoss();
+        mBtnJumpFrg.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(TAG_OF_FRAGMENT)) {
+                mOneFragment = new OneFragment();
+                TAG_OF_FRAGMENT = OneFragment.class.getSimpleName();
+            } else {
+                mOneFragment = (OneFragment) getSupportFragmentManager()
+                        .getFragment(savedInstanceState, TAG_OF_FRAGMENT);
             }
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.frg_container, mOneFragment, TAG_OF_FRAGMENT)
+                    .addToBackStack(null)
+                    .commitAllowingStateLoss();
         });
-        mBtnShowDlg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog();
-            }
+        mBtnShowDlg.setOnClickListener(v -> {
+            showDialog();
         });
 
         //TODO ：此处可打开旋转屏幕开关，允许旋屏，来测试。
@@ -87,89 +74,28 @@ public class OneActivity extends BaseLifeCycleActivity {
 
             TAG_OF_AUTO_FRAGMENT = savedInstanceState.getString(STATE_OF_AUTO_FRAGMENT);
             mAutoFragment = getSupportFragmentManager().findFragmentByTag(TAG_OF_AUTO_FRAGMENT);
-            ((OneAutoFragment) mAutoFragment).setIOneAutoFragment(new IOneAutoFragment() {
-                @Override
-                public void onJumpToSecondFragment() {
+            if (mAutoFragment != null) {
+                ((OneAutoFragment) mAutoFragment).setIOneAutoFragment(() -> {
                     jumpToSecondFragment();
-                }
-            });
+                });
+            }
 
         } else if (mAutoFragment == null && TextUtils.isEmpty(TAG_OF_AUTO_FRAGMENT)) {
             mAutoFragment = new OneAutoFragment();
-            ((OneAutoFragment) mAutoFragment).setIOneAutoFragment(new IOneAutoFragment() {
-                @Override
-                public void onJumpToSecondFragment() {
-                    jumpToSecondFragment();
-                }
+            ((OneAutoFragment) mAutoFragment).setIOneAutoFragment(() -> {
+                jumpToSecondFragment();
             });
             TAG_OF_AUTO_FRAGMENT = OneAutoFragment.class.getSimpleName();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.frg_container_1, mAutoFragment, TAG_OF_AUTO_FRAGMENT)
-//                    .addToBackStack(null)
                     .commitAllowingStateLoss();
         }
 
-
-       /* mBtnPage1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showHideFragment(OneAutoFragment.class.getSimpleName(),
-                        "com.kunminx.basicfacttesting.test01_lifecycle_test.OneAutoFragment");
-            }
-        });
-
-        mBtnPage2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showHideFragment(SecondFragment.class.getSimpleName(),
-                        "com.kunminx.basicfacttesting.test01_lifecycle_test.SecondFragment");
-            }
-        });
-
-        mBtnPage3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showHideFragment(ThirdFragment.class.getSimpleName(),
-                        "com.kunminx.basicfacttesting.test01_lifecycle_test.ThirdFragment");
-            }
-        });*/
-
-    }
-
-    //TODO not good
-    public void showHideFragment(String tag, String fragmentClass) {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
-        if (fragment == null) {
-            try {
-                fragment = (Fragment) Class.forName(fragmentClass).newInstance();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (java.lang.InstantiationException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.frg_container_1, fragment, tag);
-            if (mAutoFragment != null) {
-                transaction.hide(mAutoFragment);
-            }
-//            transaction.addToBackStack(null)
-            transaction.commitAllowingStateLoss();
-        } else if (fragment.isHidden()) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.show(fragment);
-            if (mAutoFragment != null) {
-                transaction.hide(mAutoFragment);
-            }
-            transaction.commitAllowingStateLoss();
-        }
     }
 
     public void jumpToSecondFragment() {
         STATE_OF_AUTO_FRAGMENT = SecondFragment.class.getSimpleName();
         getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.frg_container_1, new SecondFragment(), STATE_OF_AUTO_FRAGMENT)
                 .add(R.id.frg_container_1, new SecondFragment())
                 .hide(mAutoFragment)
                 .addToBackStack(null)
