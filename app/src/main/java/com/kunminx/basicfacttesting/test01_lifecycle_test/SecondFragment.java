@@ -25,6 +25,7 @@ public class SecondFragment extends BaseLifeCycleFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         return inflater.inflate(R.layout.fragment_lifecycler_two, container, false);
     }
 
