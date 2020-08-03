@@ -24,6 +24,9 @@ public class SecondFragment extends BaseLifeCycleFragment {
 
     private Callback mCallback;
 
+    public SecondFragment() {
+    }
+
     public SecondFragment(Callback callback) {
         mCallback = callback;
     }
