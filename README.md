@@ -9,8 +9,7 @@
 ![](https://i.loli.net/2020/07/26/3ycJfRXujIrDTVO.jpg)
 
 
-
-![重学安卓](https://i.loli.net/2019/06/18/5d07bd88abb4199334.png)
+![重学安卓](https://i.loli.net/2020/08/23/ouXSKyL2IM1srDc.png)
 
 
 # Thanks to
