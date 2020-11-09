@@ -21,8 +21,9 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
     protected static final String TAG = "info";
 
     protected Button mBtnStandardOne, mBtnStandardTwo, mBtnSingleTopOne, mBtnClearTop,
-            mBtnSingleTaskOne, mBtnSingleTaskTwo, mBtnSingleTaskA, mBtnSingleTaskB,
-            mBtnStandardA, mBtnSingleTopA, mBtnClearTopA, mBtnSingleInstance,
+            mBtnSingleTaskA, mBtnSingleTaskB, mBtnSingleTaskC, mBtnSingleTaskD,
+            mBtnSingleTaskG,mBtnSingleTaskH,
+            mBtnStandardI, mBtnSingleTopJ, mBtnClearTopA, mBtnSingleInstance,
             mBtnFlagNewTask;
 
     @Override
@@ -36,12 +37,14 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         mBtnStandardTwo = (Button) findViewById(R.id.btn_standard_two);
         mBtnSingleTopOne = (Button) findViewById(R.id.btn_singletop_one);
         mBtnClearTop = (Button) findViewById(R.id.btn_clear_top);
-        mBtnSingleTaskOne = (Button) findViewById(R.id.btn_singletask_a);
-        mBtnSingleTaskTwo = (Button) findViewById(R.id.btn_singletask_b);
-        mBtnSingleTaskA = (Button) findViewById(R.id.btn_singletask_c);
-        mBtnSingleTaskB = (Button) findViewById(R.id.btn_singletask_d);
-        mBtnStandardA = (Button) findViewById(R.id.btn_standard_i);
-        mBtnSingleTopA = (Button) findViewById(R.id.btn_singletop_j);
+        mBtnSingleTaskA = (Button) findViewById(R.id.btn_singletask_a);
+        mBtnSingleTaskB = (Button) findViewById(R.id.btn_singletask_b);
+        mBtnSingleTaskC = (Button) findViewById(R.id.btn_singletask_c);
+        mBtnSingleTaskD = (Button) findViewById(R.id.btn_singletask_d);
+        mBtnSingleTaskG = (Button) findViewById(R.id.btn_singletask_g);
+        mBtnSingleTaskH = (Button) findViewById(R.id.btn_singletask_h);
+        mBtnStandardI = (Button) findViewById(R.id.btn_standard_i);
+        mBtnSingleTopJ = (Button) findViewById(R.id.btn_singletop_j);
         mBtnClearTopA = (Button) findViewById(R.id.btn_clear_top_a);
         mBtnSingleInstance = (Button) findViewById(R.id.btn_singleinstance);
         mBtnFlagNewTask = (Button) findViewById(R.id.btn_flag_new_task);
@@ -50,12 +53,14 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         mBtnStandardTwo.setOnClickListener(this);
         mBtnSingleTopOne.setOnClickListener(this);
         mBtnClearTop.setOnClickListener(this);
-        mBtnSingleTaskOne.setOnClickListener(this);
-        mBtnSingleTaskTwo.setOnClickListener(this);
         mBtnSingleTaskA.setOnClickListener(this);
         mBtnSingleTaskB.setOnClickListener(this);
-        mBtnStandardA.setOnClickListener(this);
-        mBtnSingleTopA.setOnClickListener(this);
+        mBtnSingleTaskC.setOnClickListener(this);
+        mBtnSingleTaskD.setOnClickListener(this);
+        mBtnSingleTaskG.setOnClickListener(this);
+        mBtnSingleTaskH.setOnClickListener(this);
+        mBtnStandardI.setOnClickListener(this);
+        mBtnSingleTopJ.setOnClickListener(this);
         mBtnClearTopA.setOnClickListener(this);
         mBtnSingleInstance.setOnClickListener(this);
         mBtnFlagNewTask.setOnClickListener(this);
