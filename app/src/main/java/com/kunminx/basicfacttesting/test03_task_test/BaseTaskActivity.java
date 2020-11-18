@@ -75,7 +75,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, className + " --销毁");
+        Log.i(TAG, className + " -- 销毁");
     }
 
     @Override
@@ -156,6 +156,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
                     "com.kunminx.relearn_android",
                     "com.kunminx.relearn_android.ClearTopAActivity");
             intent.setComponent(name);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivityWithCheck(intent);
 
         } else if (i == R.id.btn_singleinstance) {
@@ -174,5 +175,6 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
     }
+
 
 }
