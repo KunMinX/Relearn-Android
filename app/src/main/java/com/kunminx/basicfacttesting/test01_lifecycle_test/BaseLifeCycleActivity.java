@@ -59,19 +59,19 @@ public class BaseLifeCycleActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Log.d(TAG, "onSaveInstanceState");
+        Log.d(TAG, className + "--onSaveInstanceState()");
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        Log.d(TAG, "onRestoreInstanceState");
+        Log.d(TAG, className + "--onRestoreInstanceState()");
         super.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        Log.d(TAG, "onWindowFocusChanged");
+        Log.d(TAG, className + "--onWindowFocusChanged()");
         super.onWindowFocusChanged(hasFocus);
     }
 
