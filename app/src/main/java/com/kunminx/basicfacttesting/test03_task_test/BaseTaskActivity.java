@@ -3,6 +3,7 @@ package com.kunminx.basicfacttesting.test03_task_test;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,18 +19,18 @@ import com.kunminx.basicfacttesting.R;
 public class BaseTaskActivity extends AppCompatActivity implements View.OnClickListener {
 
     protected String className = getClass().getSimpleName();
-    protected static final String TAG = "info";
+    protected static final String TAG = "TAG";
 
     protected Button mBtnStandardOne, mBtnStandardTwo, mBtnSingleTopOne, mBtnClearTop,
             mBtnSingleTaskA, mBtnSingleTaskB, mBtnSingleTaskC, mBtnSingleTaskD,
-            mBtnSingleTaskG,mBtnSingleTaskH,
+            mBtnSingleTaskG, mBtnSingleTaskH,
             mBtnStandardI, mBtnSingleTopJ, mBtnClearTopA, mBtnSingleInstance,
             mBtnFlagNewTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG, className + " -- taskId：" + getTaskId());
+        Log.d(TAG, className + " -- taskId：" + getTaskId() + " -- processId:" + Process.myPid());
 
         setContentView(R.layout.activity_test_task);
 
@@ -69,13 +70,13 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.i(TAG, className + " onNewIntent -- taskId：" + getTaskId());
+        Log.d(TAG, className + " onNewIntent -- taskId：" + getTaskId());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, className + " -- 销毁");
+        Log.d(TAG, className + " -- 销毁");
     }
 
     @Override
