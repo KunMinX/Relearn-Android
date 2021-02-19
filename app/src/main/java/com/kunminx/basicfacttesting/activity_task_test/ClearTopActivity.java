@@ -1,14 +1,12 @@
-package com.kunminx.relearn_android;
+package com.kunminx.basicfacttesting.activity_task_test;
 
 import android.os.Bundle;
-
-import com.kunminx.basicfacttesting.activity_task_test.BaseTaskActivity;
 
 
 /**
  * Create by KunMinX at 2018/10/18
  */
-public class SingleTaskActivity_G extends BaseTaskActivity {
+public class ClearTopActivity extends BaseTaskActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
