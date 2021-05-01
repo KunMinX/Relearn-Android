@@ -9,6 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--<activity
+            android:name="com.kunminx.basicfacttesting.activity_task_test.StandardActivity_One"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>-->
+
+        <!-- 测试 AllowTaskReparent 时，可注释下方 Activity，和解除注释上方 Activity，具体详见
+         《任务与返回栈篇》95 楼的解析 https://xiaozhuanlan.com/topic/7812045693 -->
+
         <activity android:name="com.kunminx.basicfacttesting.TestMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,6 +54,11 @@
 
         <activity
             android:name=".ClearTopAActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".AllowTaskReparent_Activity"
+            android:allowTaskReparenting="true"
             android:exported="true" />
 
     </application>

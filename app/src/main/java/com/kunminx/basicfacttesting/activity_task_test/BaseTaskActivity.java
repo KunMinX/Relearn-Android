@@ -25,7 +25,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
             mBtnSingleTaskA, mBtnSingleTaskB, mBtnSingleTaskC, mBtnSingleTaskD,
             mBtnSingleTaskG, mBtnSingleTaskH,
             mBtnStandardI, mBtnSingleTopJ, mBtnClearTopA, mBtnSingleInstance,
-            mBtnFlagNewTask;
+            mBtnFlagNewTask, mBtnAllowTaskReparenting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         mBtnClearTopA = (Button) findViewById(R.id.btn_clear_top_a);
         mBtnSingleInstance = (Button) findViewById(R.id.btn_singleinstance);
         mBtnFlagNewTask = (Button) findViewById(R.id.btn_flag_new_task);
+        mBtnAllowTaskReparenting = (Button) findViewById(R.id.btn_allow_task_reparenting);
 
         mBtnStandardOne.setOnClickListener(this);
         mBtnStandardTwo.setOnClickListener(this);
@@ -65,6 +66,7 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         mBtnClearTopA.setOnClickListener(this);
         mBtnSingleInstance.setOnClickListener(this);
         mBtnFlagNewTask.setOnClickListener(this);
+        mBtnAllowTaskReparenting.setOnClickListener(this);
     }
 
     @Override
@@ -167,6 +169,13 @@ public class BaseTaskActivity extends AppCompatActivity implements View.OnClickL
         } else if (i == R.id.btn_flag_new_task) {
             Intent intent = new Intent(this, FlagNewTaskActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivityWithCheck(intent);
+        } else if (i == R.id.btn_allow_task_reparenting) {
+            Intent intent = new Intent();
+            ComponentName name = new ComponentName(
+                    "com.kunminx.relearn_android",
+                    "com.kunminx.relearn_android.AllowTaskReparent_Activity");
+            intent.setComponent(name);
             startActivityWithCheck(intent);
         }
     }
