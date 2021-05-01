@@ -7,16 +7,16 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.kunminx.basicfacttesting.activity_lifecycle_and_recreate_test.OneActivity;
-import com.kunminx.basicfacttesting.activity_intent_test.IntentTestActivity;
-import com.kunminx.basicfacttesting.activity_task_test.StandardActivity_One;
-import com.kunminx.basicfacttesting.fragment_test.jump.AddFragmentActivity;
-import com.kunminx.basicfacttesting.animator_test.AnimatorListActivity;
-import com.kunminx.basicfacttesting.jetpack_test.JetpackActivity;
-import com.kunminx.basicfacttesting.service_test.TestServiceActivity;
-import com.kunminx.basicfacttesting.touch_dispatch_test.TestDispatchActivity;
-import com.kunminx.basicfacttesting.touch_nested_scroll_test.TestNestedScrollActivity;
-import com.kunminx.basicfacttesting.window_test.TestWindowActivity;
+import com.kunminx.basicfacttesting.test_01_activity_lifecycle.OneActivity;
+import com.kunminx.basicfacttesting.test_03_activity_intent.IntentTestActivity;
+import com.kunminx.basicfacttesting.test_02_activity_task.StandardActivity_One;
+import com.kunminx.basicfacttesting.test_04_fragment.jump.AddFragmentActivity;
+import com.kunminx.basicfacttesting.test_09_animator.AnimatorListActivity;
+import com.kunminx.basicfacttesting.test_05_jetpack.JetpackActivity;
+import com.kunminx.basicfacttesting.test_10_service.TestServiceActivity;
+import com.kunminx.basicfacttesting.test_06_touch_dispatch.TestDispatchActivity;
+import com.kunminx.basicfacttesting.test_07_touch_nested_scroll.TestNestedScrollActivity;
+import com.kunminx.basicfacttesting.test_08_window.TestWindowActivity;
 
 public class TestMainActivity extends AppCompatActivity {
 

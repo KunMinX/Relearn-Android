@@ -6,11 +6,11 @@
 
         <variable
             name="vm"
-            type="com.kunminx.basicfacttesting.jetpack_test.TestDataObservableFieldViewModel" />
+            type="com.kunminx.basicfacttesting.test_05_jetpack.TestDataObservableFieldViewModel" />
 
         <variable
             name="clickProxy"
-            type="com.kunminx.basicfacttesting.jetpack_test.DatabindingObservaleFieldFragment.ClickProxy" />
+            type="com.kunminx.basicfacttesting.test_05_jetpack.DatabindingObservaleFieldFragment.ClickProxy" />
 
         <import type="android.view.View" />
 

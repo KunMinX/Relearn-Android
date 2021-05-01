@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.Process;
 import android.util.Log;
 
-import com.kunminx.basicfacttesting.activity_task_test.BaseTaskActivity;
+import com.kunminx.basicfacttesting.test_02_activity_task.BaseTaskActivity;
 
 
 /**

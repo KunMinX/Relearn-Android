@@ -4,25 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.kunminx.basicfacttesting.touch_dispatch_test.TestInterceptViewGroup
+    <com.kunminx.basicfacttesting.test_06_touch_dispatch.TestInterceptViewGroup
         android:id="@+id/touch_vg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.kunminx.basicfacttesting.touch_dispatch_test.TestInterceptViewGroup1
+        <com.kunminx.basicfacttesting.test_06_touch_dispatch.TestInterceptViewGroup1
             android:id="@+id/touch_vg_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.kunminx.basicfacttesting.touch_dispatch_test.TestedView
+            <com.kunminx.basicfacttesting.test_06_touch_dispatch.TestedView
                 android:id="@+id/test_view"
                 android:layout_width="200dp"
                 android:layout_height="70dp"
                 android:background="#aa11aa" />
 
-        </com.kunminx.basicfacttesting.touch_dispatch_test.TestInterceptViewGroup1>
+        </com.kunminx.basicfacttesting.test_06_touch_dispatch.TestInterceptViewGroup1>
 
-    </com.kunminx.basicfacttesting.touch_dispatch_test.TestInterceptViewGroup>
+    </com.kunminx.basicfacttesting.test_06_touch_dispatch.TestInterceptViewGroup>
 
     <TextView
         android:id="@+id/tv_info"

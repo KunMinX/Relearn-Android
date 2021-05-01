@@ -24,7 +24,7 @@
         android:onClick="hideFloatWindow"
         android:text="隐藏浮动窗口" />
 
-    <com.kunminx.basicfacttesting.window_test.MoveView
+    <com.kunminx.basicfacttesting.test_08_window.MoveView
         android:id="@+id/tv_move"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

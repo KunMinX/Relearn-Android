@@ -2,7 +2,7 @@ package com.kunminx.relearn_android;
 
 import android.os.Bundle;
 
-import com.kunminx.basicfacttesting.activity_task_test.BaseTaskActivity;
+import com.kunminx.basicfacttesting.test_02_activity_task.BaseTaskActivity;
 
 
 /**
