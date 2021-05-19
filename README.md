@@ -20,7 +20,7 @@ Email：[kunminx@gmail.com](mailto:kunminx@gmail.com)
 
 Juejin：[KunMinX 在掘金](https://juejin.im/user/58ab0de9ac502e006975d757/posts)
 
-[![重学安卓小专栏](https://i.loli.net/2019/06/19/5d09bca4ee3c934130.png)](https://xiaozhuanlan.com/kunminx?rel=kunminx)
+[![重学安卓小专栏](https://images.xiaozhuanlan.com/photo/2021/d493a54a32e38e7fbcfa68d424ebfd1e.png)](https://xiaozhuanlan.com/kunminx)
 
 
 &nbsp;
