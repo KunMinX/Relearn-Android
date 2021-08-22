@@ -6,11 +6,9 @@
 
 &nbsp;
 
-# 《重学安卓》两周年，回顾与展望
+我们于 2019 年 6 月，在小专栏开设了[《重学安卓》](https://xiaozhuanlan.com/kunminx)付费专栏，
 
-我们于 2019 年 6 月，在小专栏开设了《重学安卓》付费专栏，
-
-迄今为止，我们共连接了 1111 名优秀开发者，并且期间不断有小伙伴告诉我，受专栏内容的影响和启发，他们也开启了写作之路，
+迄今为止，我们共连接了 1111 名优秀开发者，并且期间不断有小伙伴告诉我，受专栏内容的影响和启发，他们也开启了写作之路。
 
 
 
@@ -32,7 +30,7 @@
 
 这些术语在 Android 领域是从未有过，网上关于 “一致性问题” 等说辞，它们都有一个共同的来源，
 
-事实上，这些术语都是本人经由长期的深度思考、实践和交流后，为现象本质匹配的高度概括，《重学安卓》与之相对应的每一篇文章都 **提供了 背景缘由、职责边界 等完整的解析过程**，
+事实上，这些术语都是本人经由长期的深度思考、实践和交流后，为现象本质匹配的高度概括，[《重学安卓》](https://xiaozhuanlan.com/kunminx)与之相对应的每一篇文章都 **提供了 背景缘由、职责边界 等完整的解析过程**，
 
 ![](https://images.xiaozhuanlan.com/photo/2021/60b9c3360b57553f3a21b345a1a9de37.jpg)
 
@@ -70,19 +68,19 @@ Navigation 的本质是解决 “路由初始参数恢复” 的一致性问题
 >
 > [《是让人耳目一新的 Jetpack MVVM 精讲》](https://juejin.cn/post/6844903976240939021)
 >
-> [《是架构组件 “一致性” 概念的全面解析》](https://xiaozhuanlan.com/topic/9340256871)
+> [《架构组件 “一致性问题” 全面解析》](https://xiaozhuanlan.com/topic/9340256871)
 >
 > ·
 >
 > [《为你还原一个真实的 Jetpack Lifecycle》](https://xiaozhuanlan.com/topic/3684721950)
 >
-> [《就算不用 Jetpack Navigation，也请务必领略的声明式编程之美》](https://xiaozhuanlan.com/topic/5860149732)
+> [《柳暗花明 Jetpack Navigation 打开方式与缺陷分析》](https://xiaozhuanlan.com/topic/5860149732)
 >
 > [《LiveData 鲜为人知的 身世背景 和 独特使命》](https://xiaozhuanlan.com/topic/0168753249)
 >
-> [《有了 Jetpack ViewModel . . . 真的可以为所欲为》](https://xiaozhuanlan.com/topic/6257931840)
+> [《在页面开发中 左右逢源的 Jetpack ViewModel》](https://xiaozhuanlan.com/topic/6257931840)
 >
-> [《从 被误解 到 真香 的 Jetpack DataBinding》](https://xiaozhuanlan.com/topic/9816742350)
+> [《从被误解到 “真香” 的 Jetpack DataBinding》](https://xiaozhuanlan.com/topic/9816742350)
 
 
 
@@ -96,7 +94,7 @@ Navigation 的本质是解决 “路由初始参数恢复” 的一致性问题
 
 声明式 UI 正是通过对视图实例的屏蔽，来规避 “视图实例的 null 安全” 的一致性问题，
 
-![](https://images.xiaozhuanlan.com/photo/2020/f47f2111348d4e927e446e37379df502.gif)
+![](https://images.xiaozhuanlan.com/photo/2021/22c4024c6c1c82d5f3b11dfe9af5f6b6.gif)
 
 也即声明式 UI 可用于替代 DataBinding 等框架，
 
@@ -106,9 +104,9 @@ Navigation 的本质是解决 “路由初始参数恢复” 的一致性问题
 
 > 文章来源
 >
-> [《是 “一通百通” 的 声明式 UI 扫盲干货》](https://xiaozhuanlan.com/topic/2356748910)
+> [《一通百通 “声明式 UI” 扫盲干货》](https://xiaozhuanlan.com/topic/2356748910)
 >
-> [《从 被误解 到 真香 的 Jetpack DataBinding》](https://xiaozhuanlan.com/topic/9816742350)
+> [《从被误解到 “真香” 的 Jetpack DataBinding》](https://xiaozhuanlan.com/topic/9816742350)
 
 
 
@@ -124,7 +122,7 @@ MVVM 的本质是基于 “数据绑定” 来解决视图实例 null 安全一�
 >
 > [《如何让同事爱上架构模式、少写 bug 多注释》](https://xiaozhuanlan.com/topic/8204519736)
 >
-> [《是让人提神醒脑的 MVP、MVVM 关系精讲》](https://xiaozhuanlan.com/topic/6105792348)
+> [《提神醒脑 MVP、MVVM 关系精讲》](https://xiaozhuanlan.com/topic/6105792348)
 
 
 
@@ -144,7 +142,7 @@ LiveData 的设计存在缺陷。
 
 > 文章来源
 >
-> [《LiveData 唯一可信源 读写分离设计 独家解析》](https://xiaozhuanlan.com/topic/2049857631)
+> [《唯一可信源 读写分离设计 独家解析》](https://xiaozhuanlan.com/topic/2049857631)
 >
 > [《LiveData 数据倒灌 背景缘由全貌 独家解析》](https://xiaozhuanlan.com/topic/6719328450)
 
@@ -176,22 +174,23 @@ LiveData 的设计存在缺陷。
 
 # 对未来的展望
 
-《重学安卓》发展至今，已从单纯的写作专栏，演化为高手云集的社群，这里平均每两周一位小伙伴告知自己入职字节跳动，也有来自 HencoderPlus 的小伙伴不断加入，
+[《重学安卓》](https://xiaozhuanlan.com/kunminx)发展至今，已从单纯的写作专栏，演化为高手云集的社群，这里平均每两周一位小伙伴告知自己入职字节跳动，也有来自 HencoderPlus 的小伙伴不断加入，
 
-关于写作，《重学安卓》一直保持初心，只写揭露本质的 “深度思考” 文章，授人以鱼且授人以渔。
+关于写作，[《重学安卓》](https://xiaozhuanlan.com/kunminx)一直保持初心，只写揭露本质的 “深度思考” 文章，授人以鱼且授人以渔。
 
 ![](https://images.xiaozhuanlan.com/photo/2021/27103b7673c9319770793642ace58028.jpg)
 
 比起无原则的盲目扩充，我们选择慎重选题和长期修订打磨，确保能恰到好处地覆盖到 关于某领域的 来龙去脉、各式场景、最新动态，
 
-![](https://images.xiaozhuanlan.com/photo/2021/7079b7090c7bc272f5904251b49bf044.jpg)
+![](https://images.xiaozhuanlan.com/photo/2021/ef0ba0e8ba7331875588eaa541b2b384.png)
+
+
 
 并且考虑到部分读者有截图收藏的需要，我们逐步为专栏文章增设 “语录卡片”，方便已订阅的读者保存到手机、随时查看、以及通过二维码直达原文重温。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gr7lp9o0t8j31400u04qp.jpg)
+![](https://images.xiaozhuanlan.com/photo/2021/4c203f52aa7310aaea86b9782fb926f2.png)
 
 最后，感谢小伙伴们一直以来的关心和支持！
-
 
 &nbsp;
 
