@@ -20,7 +20,7 @@
 
 包括 腾讯音乐、BMW、TCL 等知名厂商的软件，都在使用我们正在维护的[《UnPeek-LiveData》](https://github.com/KunMinX/UnPeek-LiveData)等仓库。
 
-![](https://images.xiaozhuanlan.com/photo/2021/b00e3594f28296671962ccc0c13f6ceb.png)
+![](https://images.xiaozhuanlan.com/photo/2021/fe1f61b623b19b875041d0c033ef9b36.png)
 
 
 
@@ -30,7 +30,7 @@
 
 这些术语在 Android 领域是从未有过，网上关于 “一致性问题” 等说辞，它们都有一个共同的来源，
 
-事实上，这些术语都是本人经由长期的深度思考、实践和交流后，为现象本质匹配的高度概括，[《重学安卓》](https://xiaozhuanlan.com/kunminx)与之相对应的每一篇文章都 **提供了 背景缘由、职责边界 等完整的解析过程**，
+事实上，这些术语缘于本人经由长期的深度思考、实践和交流后，为现象本质匹配的高度概括，[《重学安卓》](https://xiaozhuanlan.com/kunminx)与之相对应的每一篇文章都 **提供了 背景缘由、职责边界 等完整的解析过程**，
 
 ![](https://images.xiaozhuanlan.com/photo/2021/60b9c3360b57553f3a21b345a1a9de37.jpg)
 
